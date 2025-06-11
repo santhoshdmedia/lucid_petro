@@ -4,4 +4,11 @@
 
 body{
     background-color: #ffff;
+    overflow-x: hidden;
+}
+
+
+.infrastructure__section{
+   background: url('assets/factory/fac22.webp') no-repeat center center fixed;
+   background-size: cover;
 }
