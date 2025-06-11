@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import item_one from "../assets/product/productone.jpg";
+import item_one from "../assets/item1.png";
 import item_two from "../assets/item2.png";
 import item_three from "../assets/item3.jpg";
 import item_four from "../assets/item4.jpg";
@@ -11,7 +11,7 @@ import lubricatingGrease from "../assets/product/productthree.jpg";
 import GearOil from "../assets/product/productfour.jpg";
 import automobile from "../assets/product/productfive.jpg";
 import blockqotes from "../assets/blockquotes.png";
-import owner from "../assets/owner.jpg";
+import owner from "../assets/owner.webp";
 import { Link } from "react-router";
 
 const Home = () => {
