@@ -1,35 +1,35 @@
 import { useState } from 'react';
 
 // Employee images
-import emp1 from '../assets/employees/emp1.jpg';
-import emp2 from '../assets/employees/emp2.jpg';
-import emp3 from '../assets/employees/emp3.jpg';
+import emp1 from '../assets/employees/emp1.webp';
+import emp2 from '../assets/employees/emp2.webp';
+import emp3 from '../assets/employees/emp3.webp';
 
 // Factory images
-import fac1 from '../assets/factory/fac1.jpg';
-import fac2 from '../assets/factory/fac2.jpg';
-import fac3 from '../assets/factory/fac3.jpg';
-import fac4 from '../assets/factory/fac4.jpg';
-import fac5 from '../assets/factory/fac5.jpg';
-import fac6 from '../assets/factory/fac6.jpg';
-import fac7 from '../assets/factory/fac7.jpg';
-import fac8 from '../assets/factory/fac8.jpg';
-import fac9 from '../assets/factory/fac9.jpg';
-import fac10 from '../assets/factory/fac10.jpg';
-import fac11 from '../assets/factory/fac11.png';
-import fac12 from '../assets/factory/fac12.png';
-import fac13 from '../assets/factory/fac13.png';
-import fac14 from '../assets/factory/fac14.png';
-import fac15 from '../assets/factory/fac15.png';
-import fac16 from '../assets/factory/fac16.png';
-import fac17 from '../assets/factory/fac17.png';
-import fac18 from '../assets/factory/fac18.png';
-import fac19 from '../assets/factory/fac19.png';
-import fac20 from '../assets/factory/fac20.png';
-import fac21 from '../assets/factory/fac21.png';
-import fac22 from '../assets/factory/fac22.png';
-import fac23 from '../assets/factory/fac23.png';
-import fac24 from '../assets/factory/fac24.jpg';
+import fac1 from '../assets/factory/fac1.webp';
+import fac2 from '../assets/factory/fac2.webp';
+import fac3 from '../assets/factory/fac3.webp';
+import fac4 from '../assets/factory/fac4.webp';
+import fac5 from '../assets/factory/fac5.webp';
+import fac6 from '../assets/factory/fac6.webp';
+import fac7 from '../assets/factory/fac7.webp';
+import fac8 from '../assets/factory/fac8.webp';
+import fac9 from '../assets/factory/fac9.webp';
+import fac10 from '../assets/factory/fac10.webp';
+import fac11 from '../assets/factory/fac11.webp';
+import fac12 from '../assets/factory/fac12.webp';
+import fac13 from '../assets/factory/fac13.webp';
+import fac14 from '../assets/factory/fac14.webp';
+import fac15 from '../assets/factory/fac15.webp';
+import fac16 from '../assets/factory/fac16.webp';
+import fac17 from '../assets/factory/fac17.webp';
+import fac18 from '../assets/factory/fac18.webp';
+import fac19 from '../assets/factory/fac19.webp';
+import fac20 from '../assets/factory/fac20.webp';
+import fac21 from '../assets/factory/fac21.webp';
+import fac22 from '../assets/factory/fac22.webp';
+import fac23 from '../assets/factory/fac23.webp';
+import fac24 from '../assets/factory/fac24.webp';
 
 const galleryImages = [
   // Employee images

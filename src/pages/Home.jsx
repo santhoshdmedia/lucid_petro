@@ -5,11 +5,11 @@ import item_three from "../assets/item3.jpg";
 import item_four from "../assets/item4.jpg";
 import item_five from "../assets/item5.jpg";
 import item_six from "../assets/item6.jpg";
-import grease from "../assets/product/productone.jpg";
-import engineOil from "../assets/product/producttwo.jpg";
+import grease from "../assets/product/engine_oil.png";
+import engineOil from "../assets/product/engine_oil.png";
 import lubricatingGrease from "../assets/product/productthree.jpg";
-import GearOil from "../assets/product/productfour.jpg";
-import automobile from "../assets/product/productfive.jpg";
+import GearOil from "../assets/product/gearoil.jpg";
+import automobile from "../assets/product/grease2.jpg";
 import blockqotes from "../assets/blockquotes.png";
 import owner from "../assets/owner.webp";
 import { Link } from "react-router";
@@ -143,11 +143,11 @@ const Home = () => {
               <div
                 key={product.id}
                 className="flex flex-col flex-wrap items-center w-full  hover:scale-105 transition-transform duration-300 cursor-pointer"              >
-                <div className="aspect-square  size-50 rounded-full drop-shadow-lg p-4 overflow-hidden ">
+                <div className="rounded-full  p-4 overflow-hidden ">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover "
+                    className="w-auto h-50 object-contain "
                     loading="lazy"
                   />
                 </div>
