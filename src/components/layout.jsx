@@ -7,13 +7,13 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 
 
+
+
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false);
-
-  // Navigation items data with dropdown support
+  // Navigation items data
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/about-us', label: 'About' },
@@ -31,17 +31,32 @@ export const Navbar = () => {
     { path: '/contact', label: 'Contact' },
   ];
 
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
+  const handleDropdownToggle = (label) => {
+    setOpenDropdown(openDropdown === label ? null : label);
+  };
+
+  const closeAllDropdowns = () => {
+    setOpenDropdown(null);
+  };
+
   return (
     <header className="bg-[#005f5a] text-white sticky top-0 z-50 shadow-md">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between ">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0 flex items-center">
+          <Link 
+            to="/" 
+            className="flex-shrink-0 flex items-center focus:outline-none focus:ring-2 focus:ring-[#BDD9D7] rounded"
+            aria-label="Home"
+            onClick={closeAllDropdowns}
+          >
             <img
               src={logo}
               alt="Lucid Petro Chemical Company Logo"
               className="size-26 w-auto"
-             
             />
           </Link>
 
@@ -49,34 +64,63 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               item.subItems ? (
-                <div key={item.label} className="relative group">
-                  <button className="flex items-center px-4 py-2 text-lg font-medium text-white hover:text-[#BDD9D7] transition-colors">
+                <div 
+                  key={item.label} 
+                  className="relative"
+                  onMouseEnter={() => setOpenDropdown(item.label)}
+                  // onMouseLeave={closeAllDropdowns}
+                >
+                  <button
+                    className="flex items-center px-4 py-2 text-lg font-medium text-white hover:text-[#BDD9D7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#BDD9D7] rounded focus:border-none"
+                    onClick={() => handleDropdownToggle(item.label)}
+                    aria-expanded={openDropdown === item.label}
+                    aria-haspopup="true"
+                    aria-controls={`dropdown-${item.label}`}
+                  >
                     {item.label}
-                    <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg
+                      className={`ml-1 h-4 w-4 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  <div className="absolute left-0 top-23 mt-0 w-56 origin-top-left rounded bg-[#004a46] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    {item.subItems.map((subItem) => (
-                      <Link
-                        key={subItem.path}
-                        to={subItem.path}
-                        className="block px-6 py-3 text-white hover:bg-[#003a36] transition-colors "
-                      >
-                        {subItem.label}
-                      </Link>
-                    ))}
+
+                  {/* Dropdown Menu */}
+                  <div
+                    id={`dropdown-${item.label}`}
+                    className={`absolute left-0 top-21   mt-2 w-56 origin-top-left rounded-md bg-[#004a46] shadow-lg ring-1  ring-opacity-5 transition-all duration-200 ${openDropdown === item.label ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby={`menu-button-${item.label}`}
+                    onMouseLeave={closeAllDropdowns}
+                  >
+                    <div className="py-1">
+                      {item.subItems.map((subItem) => (
+                        <Link
+                          key={subItem.path}
+                          to={subItem.path}
+                          className="block px-4 py-2 text-white hover:bg-[#003a36] transition-colors focus:bg-[#003a36] focus:outline-none"
+                          role="menuitem"
+                          onClick={closeAllDropdowns}
+                          
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ) : (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="relative group px-4 py-2 text-lg font-medium"
+                  className="relative px-4 py-2 text-lg font-medium text-white hover:text-[#BDD9D7] transition-colors group focus:outline-none"
+                  onClick={closeAllDropdowns}
                 >
-                  <span className="text-white hover:text-[#BDD9D7] transition-colors">
-                    {item.label}
-                  </span>
+                  <span>{item.label}</span>
                   <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#BDD9D7] w-0 group-hover:w-3/4 transition-all duration-300"></span>
                 </Link>
               )
@@ -89,7 +133,7 @@ export const Navbar = () => {
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-[#BDD9D7] hover:bg-[#004a46] focus:outline-none focus:ring-2 focus:ring-[#BDD9D7]"
               aria-expanded={isMenuOpen}
-              aria-label="Toggle menu"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
                 <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -105,45 +149,258 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div
-          className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden transition-all duration-300 ease-in-out`}
-          aria-hidden={!isMenuOpen}
-        >
-          <div className="pt-2 pb-4 space-y-1 rounded-lg mt-2">
-            {navItems.map((item) => (
-              item.subItems ? (
-                <div key={item.label} className="px-4 py-3">
-                  <div className="text-lg font-medium text-white">{item.label}</div>
-                  <div className="mt-2 space-y-2 pl-4">
-                    {item.subItems.map((subItem) => (
-                      <Link
-                        key={subItem.path}
-                        to={subItem.path}
-                        className="block py-2 text-white hover:bg-[#003a36] transition-colors rounded px-2"
-                        onClick={closeMenu}
+        {isMenuOpen && (
+          <div 
+            className="md:hidden transition-all duration-300 ease-in-out"
+            aria-hidden={!isMenuOpen}
+          >
+            <div className="pt-2 pb-4 space-y-1 rounded-lg mt-2">
+              {navItems.map((item) => (
+                item.subItems ? (
+                  <div key={item.label} className=" py-1">
+                    <button
+                      onClick={() => handleDropdownToggle(item.label)}
+                      className="w-full flex justify-between items-center px-4 py-3 text-lg font-medium text-white focus:outline-none"
+                      aria-expanded={openDropdown === item.label}
+                    >
+                      {item.label}
+                      <svg 
+                        className={`h-4 w-4 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`}
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
                       >
-                        {subItem.label}
-                      </Link>
-                    ))}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    {openDropdown === item.label && (
+                      <div className="mt-1 space-y-1 pl-4">
+                        {item.subItems.map((subItem) => (
+                          <Link
+                            key={subItem.path}
+                            to={subItem.path}
+                            className="block py-2 px-4 text-white hover:bg-[#003a36] transition-colors rounded focus:bg-[#003a36] focus:outline-none"
+                            onClick={closeMenu}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </div>
-              ) : (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className="block px-4 py-3 text-lg font-medium text-white hover:bg-[#003a36] transition-colors rounded"
-                  onClick={closeMenu}
-                >
-                  {item.label}
-                </Link>
-              )
-            ))}
+                ) : (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="block px-4 py-3 text-lg font-medium text-white hover:bg-[#003a36] transition-colors rounded focus:bg-[#003a36] focus:outline-none"
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </nav>
     </header>
   );
 };
+// export const Navbar = () => {
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+//   const [openDropdown, setOpenDropdown] = useState(null);
+
+//   // Navigation items data
+//   const navItems = [
+//     { path: '/', label: 'Home' },
+//     { path: '/about-us', label: 'About' },
+//     { path: '/gallery', label: 'Gallery' },
+//     { 
+//       label: 'Products',
+//       subItems: [
+//         { path: '/products/automotive-grease', label: 'Automotive Grease' },
+//         { path: '/products/engine-oil', label: 'Engine Oil' },
+//         { path: '/products/gear-oil', label: 'Gear Oil' },
+//         { path: '/products/grease-bucket', label: 'Grease Bucket' },
+//         { path: '/products/lubricating-grease', label: 'Lubricating Grease' },
+//       ]
+//     },
+//     { path: '/contact', label: 'Contact' },
+//   ];
+
+//   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+//   const closeMenu = () => setIsMenuOpen(false);
+
+//   const handleDropdownToggle = (label) => {
+//     setOpenDropdown(openDropdown === label ? null : label);
+//   };
+
+//   const closeAllDropdowns = () => {
+//     setOpenDropdown(null);
+//   };
+
+//   return (
+//     <header className="bg-[#005f5a] text-white sticky top-0 z-50 shadow-md">
+//       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+//         <div className="flex items-center justify-between">
+//           {/* Logo */}
+//           <Link 
+//             to="/" 
+//             className="flex-shrink-0 flex items-center focus:outline-none focus:ring-2 focus:ring-[#BDD9D7] rounded"
+//             aria-label="Home"
+//             onClick={closeAllDropdowns}
+//           >
+//             <img
+//               src={logo}
+//               alt="Lucid Petro Chemical Company Logo"
+//               className="size-26 w-auto"
+//             />
+//           </Link>
+
+//           {/* Desktop Navigation */}
+//           <div className="hidden md:flex items-center space-x-1">
+//             {navItems.map((item) => (
+//               item.subItems ? (
+//                 <div 
+//                   key={item.label} 
+//                   className="relative"
+//                   onMouseEnter={() => setOpenDropdown(item.label)}
+//                   onMouseLeave={closeAllDropdowns}
+//                 >
+//                   <button
+//                     className="flex items-center px-4 py-2 text-lg font-medium text-white hover:text-[#BDD9D7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#BDD9D7] rounded"
+//                     onClick={() => handleDropdownToggle(item.label)}
+//                     aria-expanded={openDropdown === item.label}
+//                     aria-haspopup="true"
+//                     aria-controls={`dropdown-${item.label}`}
+//                   >
+//                     {item.label}
+//                     <svg
+//                       className={`ml-1 h-4 w-4 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`}
+//                       fill="none"
+//                       viewBox="0 0 24 24"
+//                       stroke="currentColor"
+//                     >
+//                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+//                     </svg>
+//                   </button>
+
+//                   {/* Dropdown Menu */}
+//                   <div
+//                     id={`dropdown-${item.label}`}
+//                     className={`absolute left-0 mt-2 w-56 origin-top-left rounded-md bg-[#004a46] shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-200 ${openDropdown === item.label ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+//                     role="menu"
+//                     aria-orientation="vertical"
+//                     aria-labelledby={`menu-button-${item.label}`}
+//                   >
+//                     <div className="py-1">
+//                       {item.subItems.map((subItem) => (
+//                         <Link
+//                           key={subItem.path}
+//                           to={subItem.path}
+//                           className="block px-4 py-2 text-white hover:bg-[#003a36] transition-colors focus:bg-[#003a36] focus:outline-none"
+//                           role="menuitem"
+//                           onClick={closeAllDropdowns}
+//                         >
+//                           {subItem.label}
+//                         </Link>
+//                       ))}
+//                     </div>
+//                   </div>
+//                 </div>
+//               ) : (
+//                 <Link
+//                   key={item.path}
+//                   to={item.path}
+//                   className="relative px-4 py-2 text-lg font-medium text-white hover:text-[#BDD9D7] transition-colors group focus:outline-none"
+//                   onClick={closeAllDropdowns}
+//                 >
+//                   <span>{item.label}</span>
+//                   <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#BDD9D7] w-0 group-hover:w-3/4 transition-all duration-300"></span>
+//                 </Link>
+//               )
+//             ))}
+//           </div>
+
+//           {/* Mobile menu button */}
+//           <div className="md:hidden flex items-center">
+//             <button
+//               onClick={toggleMenu}
+//               className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-[#BDD9D7] hover:bg-[#004a46] focus:outline-none focus:ring-2 focus:ring-[#BDD9D7]"
+//               aria-expanded={isMenuOpen}
+//               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+//             >
+//               {isMenuOpen ? (
+//                 <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+//                 </svg>
+//               ) : (
+//                 <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+//                 </svg>
+//               )}
+//             </button>
+//           </div>
+//         </div>
+
+//         {/* Mobile Navigation */}
+//         {isMenuOpen && (
+//           <div 
+//             className="md:hidden transition-all duration-300 ease-in-out"
+//             aria-hidden={!isMenuOpen}
+//           >
+//             <div className="pt-2 pb-4 space-y-1 rounded-lg mt-2">
+//               {navItems.map((item) => (
+//                 item.subItems ? (
+//                   <div key={item.label} className="px-2 py-1">
+//                     <button
+//                       onClick={() => handleDropdownToggle(item.label)}
+//                       className="w-full flex justify-between items-center px-4 py-3 text-lg font-medium text-white focus:outline-none"
+//                       aria-expanded={openDropdown === item.label}
+//                     >
+//                       {item.label}
+//                       <svg 
+//                         className={`h-4 w-4 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`}
+//                         fill="none" 
+//                         viewBox="0 0 24 24" 
+//                         stroke="currentColor"
+//                       >
+//                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+//                       </svg>
+//                     </button>
+//                     {openDropdown === item.label && (
+//                       <div className="mt-1 space-y-1 pl-4">
+//                         {item.subItems.map((subItem) => (
+//                           <Link
+//                             key={subItem.path}
+//                             to={subItem.path}
+//                             className="block py-2 px-4 text-white hover:bg-[#003a36] transition-colors rounded focus:bg-[#003a36] focus:outline-none"
+//                             onClick={closeMenu}
+//                           >
+//                             {subItem.label}
+//                           </Link>
+//                         ))}
+//                       </div>
+//                     )}
+//                   </div>
+//                 ) : (
+//                   <Link
+//                     key={item.path}
+//                     to={item.path}
+//                     className="block px-4 py-3 text-lg font-medium text-white hover:bg-[#003a36] transition-colors rounded focus:bg-[#003a36] focus:outline-none"
+//                     onClick={closeMenu}
+//                   >
+//                     {item.label}
+//                   </Link>
+//                 )
+//               ))}
+//             </div>
+//           </div>
+//         )}
+//       </nav>
+//     </header>
+//   );
+// };
 
 export const Footer = () => {
   return (
@@ -222,11 +479,11 @@ if (hideBreadcrumbsRoutes.includes(location.pathname)) {
     return (
       <li key={part}>
         {isLast ? (
-          <span className="text-gray-500">
+          <span className="text-white font-bold">
             {part.replace(/\b\w/g, (char) => char.toUpperCase())}
           </span>
         ) : (
-          <Link to={path} className="text-[#005f5a] hover:text-[#003a36]">
+          <Link to={path} className="text-white font-bold">
             {part.replace(/\b\w/g, (char) => char.toUpperCase())}
           </Link>
         )}
@@ -235,10 +492,10 @@ if (hideBreadcrumbsRoutes.includes(location.pathname)) {
   });
 
   return (
-    <div className="text-sm breadcrumbs p-4">
+    <div className="text-sm breadcrumbs py-5">
       <ul>
         <li>
-          <Link to="/" className="text-blue-600 hover:text-blue-800">
+          <Link to="/" className="text-white  font-bold ">
             Home
           </Link>
         </li>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaTwitter, FaFacebook, FaInstagram, FaParking, FaClock, FaPaperPlane } from 'react-icons/fa';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AppBreadcrumbs } from '../components/layout';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -38,134 +39,239 @@ const Contact = () => {
     };
 
     return (
-        <div className='px-4 sm:px-8 lg:px-16 xl:px-32 2xl:px-40'>
-            <h1 className="text-center lg:text-5xl md:text-4xl sm:text-4xl text-4xl lg:w-full md:w-full w-[80%] font-bold mx-auto text-[#005f5a] mb-[6rem] relative group mt-[4rem]">
-                Get in Touch
-                <span className="absolute inset-x-0 bottom-[-30px] h-1 w-[30%] bg-teal-900 rounded-full left-[50%] transform -translate-x-1/2 "></span>
-            </h1>
-
-            <section className="flex flex-col lg:flex-row items-center gap-8 justify-between text-teal-900 my-8 sm:my-12 md:my-16 lg:my-20 rounded-2xl shadow-lg overflow-hidden p-6 sm:p-8 lg:p-12">
-                {/* Contact Info Section */}
-                <div className="w-full lg:w-1/2 p-6 sm:p-8 lg:p-12">
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-4">Contact Us</h2>
-                    <p className="text-teal-800 mb-6 text-lg">We'd love to hear from you!</p>
-                    
-                    <div className="space-y-4">
-                        <div className="flex items-center">
-                            <FaPhoneAlt className="h-5 w-5 text-teal-900 mr-3" />
-                            <span>+1 (555) 123-4567</span>
-                        </div>
-                        <div className="flex items-center">
-                            <FaEnvelope className="h-5 w-5 text-teal-900 mr-3" />
-                            <span>info@example.com</span>
-                        </div>
-                        <div className="flex items-start">
-                            <FaMapMarkerAlt className="h-5 w-5 text-teal-900 mr-3 mt-1" />
-                            <span>
-                                79/5 6 Muthaiyampalaiyam Road, <br /> 
-                                Kottathur Village Thuraiyur Taluk, <br /> 
-                                Thuraiyur, Srirangam, Tiruchirappalli-621004, <br /> 
-                                Tamil Nadu, India
-                            </span>
-                        </div>
-                    </div>
+        <div className=''>
+            <header className="w-full py-10  about__section" >
+                <div className="container mx-auto px-4  z-40 relative ">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#f7f7f7] ">
+                        Get In Touch
+                    </h1>
+                    <AppBreadcrumbs />
                 </div>
+            </header>
 
-                {/* Form Section */}
-                <form 
-                    onSubmit={handleSubmit} 
-                    className="w-full lg:w-1/2 bg-white p-6 sm:p-8 lg:p-12 space-y-6 rounded-2xl shadow-lg"
-                    aria-labelledby="form-title"
-                >
-                    <h3 id="form-title" className="text-xl font-semibold text-gray-800">Send us a message</h3>
-                    
-                    <div className="space-y-4">
-                        <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                                Name <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
-                                placeholder="Your name"
-                                value={formData.name}
-                                onChange={handleInputChange}
-                                required
-                            />
-                        </div>
+            <section className='px-4 sm:px-8 lg:px-16 xl:px-32 2xl:px-40'>
+  {/* Contact Header */}
+  <div className="text-center mb-12">
+    <h1 className="text-3xl sm:text-4xl font-bold text-teal-900 mb-4">Get In Touch</h1>
+    <p className="text-lg text-teal-800 max-w-3xl mx-auto">
+      Have questions about our products or services? Our team is ready to help you with expert advice and solutions tailored to your needs.
+    </p>
+  </div>
 
-                        <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                                Email <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="to"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
-                                placeholder="your.email@example.com"
-                                value={formData.to}
-                                onChange={handleInputChange}
-                                required
-                            />
-                        </div>
+  {/* Contact Container */}
+  <section className="flex flex-col lg:flex-row items-center gap-8 justify-between text-teal-900 my-8 sm:my-12 md:my-16 lg:my-20 rounded-2xl shadow-lg overflow-hidden bg-gradient-to-r from-teal-50 to-white">
+    {/* Contact Info Section */}
+    <div className="w-full h-full lg:w-1/2 p-6 sm:p-8 lg:p-12">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-6">Our Contact Information</h2>
+      <p className="text-teal-800 mb-8 text-lg leading-relaxed">
+        Whether you need technical support, product information, or want to discuss partnership opportunities, we're here to assist you.
+      </p>
 
-                        <div>
-                            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                                Subject
-                            </label>
-                            <input
-                                type="text"
-                                id="subject"
-                                name="subject"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
-                                placeholder="Subject"
-                                value={formData.subject}
-                                onChange={handleInputChange}
-                            />
-                        </div>
+      <div className="space-y-6">
+        <div className="flex items-start bg-white p-4 rounded-lg shadow-sm">
+          <div className="bg-teal-100 p-3 rounded-full mr-4">
+            <FaPhoneAlt className="h-5 w-5 text-teal-900" />
+          </div>
+          <div>
+            <h3 className="font-semibold text-lg mb-1">Phone</h3>
+            <p className="text-gray-700">+1 (555) 123-4567</p>
+            <p className="text-sm text-gray-500 mt-1">Mon-Fri: 9:00 AM - 6:00 PM</p>
+          </div>
+        </div>
 
-                        <div>
-                            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                                Message <span className="text-red-500">*</span>
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="4"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
-                                placeholder="Your message..."
-                                value={formData.message}
-                                onChange={handleInputChange}
-                                required
-                            />
-                        </div>
-                    </div>
+        <div className="flex items-start bg-white p-4 rounded-lg shadow-sm">
+          <div className="bg-teal-100 p-3 rounded-full mr-4">
+            <FaEnvelope className="h-5 w-5 text-teal-900" />
+          </div>
+          <div>
+            <h3 className="font-semibold text-lg mb-1">Email</h3>
+            <p className="text-gray-700">info@example.com</p>
+            <p className="text-gray-700">support@example.com</p>
+            <p className="text-sm text-gray-500 mt-1">Typically replies within 24 hours</p>
+          </div>
+        </div>
 
-                    <button
-                        type="submit"
-                        className="w-full bg-teal-900 hover:bg-teal-800 text-white font-medium py-3 px-4 rounded-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-teal-900 focus:ring-offset-2"
-                    >
-                        Send Message
-                    </button>
-                </form>
-            </section>
+        <div className="flex items-start bg-white p-4 rounded-lg shadow-sm">
+          <div className="bg-teal-100 p-3 rounded-full mr-4">
+            <FaMapMarkerAlt className="h-5 w-5 text-teal-900" />
+          </div>
+          <div>
+            <h3 className="font-semibold text-lg mb-1">Headquarters</h3>
+            <address className="not-italic text-gray-700">
+              79/5 6 Muthaiyampalaiyam Road, <br />
+              Kottathur Village Thuraiyur Taluk, <br />
+              Thuraiyur, Srirangam, Tiruchirappalli-621004, <br />
+              Tamil Nadu, India
+            </address>
+            <p className="text-sm text-gray-500 mt-2">Open in Google Maps</p>
+          </div>
+        </div>
+      </div>
 
-            {/* Map Section */}
-            <section className="my-12 mb-[4rem] rounded-2xl overflow-hidden shadow-lg">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30569.202990640013!2d78.65442050358216!3d11.1144443688747!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa559b75a3d891%3A0x3714f2b156f464cd!2sLucid%20petro%20chemical!5e0!3m2!1sen!2sin!4v1749189203946!5m2!1sen!2sin"
-                    width="100%" 
-                    height="600" 
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy" 
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Dmedia Location Map"
-                ></iframe>
-            </section>
+      {/* Social Media Links */}
+      <div className="mt-8">
+        <h3 className="font-semibold text-lg mb-4">Connect With Us</h3>
+        <div className="flex space-x-4">
+          {[FaLinkedin, FaTwitter, FaFacebook, FaInstagram].map((Icon, index) => (
+            <a 
+              key={index} 
+              href="#" 
+              className="bg-white p-3 rounded-full shadow-sm text-teal-900 hover:bg-teal-100 transition-colors"
+              aria-label={`Follow us on ${Icon.name.replace('Fa', '')}`}
+            >
+              <Icon className="h-5 w-5" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Form Section */}
+    <form
+      onSubmit={handleSubmit}
+      className="w-full lg:w-1/2 bg-white p-6 sm:p-8 lg:p-12 space-y-6 rounded-2xl shadow-lg  "
+      aria-labelledby="form-title"
+    >
+      <h3 id="form-title" className="text-2xl font-bold text-teal-900 mb-2">Send us a message</h3>
+      <p className="text-gray-600 mb-6">Fill out the form below and we'll get back to you as soon as possible.</p>
+
+      <div className="space-y-5">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            Full Name <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
+            placeholder="John Doe"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            Email Address <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="to"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
+            placeholder="your.email@example.com"
+            value={formData.to}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+            Phone Number
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
+            placeholder="+1 (555) 123-4567"
+            value={formData.phone || ''}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+            Subject
+          </label>
+          <select
+            id="subject"
+            name="subject"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
+            value={formData.subject}
+            onChange={handleInputChange}
+          >
+            <option value="">Select a subject</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Product Information">Product Information</option>
+            <option value="Technical Support">Technical Support</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+            Your Message <span className="text-red-500">*</span>
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
+            placeholder="How can we help you?"
+            value={formData.message}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+      </div>
+
+      <div className="flex items-center">
+        <input
+          type="checkbox"
+          id="consent"
+          name="consent"
+          className="h-4 w-4 text-teal-900 focus:ring-teal-900 border-gray-300 rounded"
+          required
+        />
+        <label htmlFor="consent" className="ml-2 block text-sm text-gray-700">
+          I agree to the privacy policy and terms of service
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        className="w-full bg-teal-900 hover:bg-teal-800 text-white font-medium py-3 px-4 rounded-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-teal-900 focus:ring-offset-2 flex items-center justify-center"
+      >
+        <FaPaperPlane className="mr-2" />
+        Send Message
+      </button>
+    </form>
+  </section>
+
+  {/* Map Section with Additional Info */}
+  <section className="my-12 mb-[4rem] rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+    <div className="bg-teal-900 text-white p-6">
+      <h2 className="text-2xl font-bold mb-2">Visit Our Facility</h2>
+      <p className="mb-4">We welcome visitors by appointment. Contact us to schedule a tour of our manufacturing plant.</p>
+      <div className="flex flex-wrap gap-4">
+        <div className="flex items-center">
+          <FaClock className="mr-2" />
+          <span>Mon-Fri: 9:00 AM - 5:00 PM</span>
+        </div>
+        <div className="flex items-center">
+          <FaParking className="mr-2" />
+          <span>Free parking available</span>
+        </div>
+      </div>
+    </div>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30569.202990640013!2d78.65442050358216!3d11.1144443688747!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa559b75a3d891%3A0x3714f2b156f464cd!2sLucid%20petro%20chemical!5e0!3m2!1sen!2sin!4v1749189203946!5m2!1sen!2sin"
+      width="100%"
+      height="500"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      title="Lucid Petro Chemical Location Map"
+      className="border-t border-gray-200"
+    ></iframe>
+  </section>
+</section>
 
             <ToastContainer position="top-center" autoClose={5000} />
         </div>

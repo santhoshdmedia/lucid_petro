@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import whiteGrease from "../../assets/product/automible/white_lucid.png";
 import LithiumGrease from "../../assets/product/automible/lucid_lithium.png";
 
 import { Link } from "react-router";
 
+import { useNavigate } from "react-router";
+import { AppBreadcrumbs } from "../../components/layout";
 
 
 
 
+export const ProductLayout = () => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    navigate('/');
+  }, [navigate]); 
+
+  return null; 
+};
 export const LubricantProduct = ({ 
   productData, 
   title,
@@ -27,10 +38,13 @@ export const LubricantProduct = ({
   return (
     <div className="bg-white">
       {/* Header Section */}
-      <header className="text-center p-10 ">
-        <h1 className="text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#005f5a]">
-          {title}
-        </h1>
+      <header className="w-full py-10  product__section" >
+        <div className="container mx-auto px-4  z-40 relative ">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#f7f7f7] ">
+            {title}
+          </h1>
+          <AppBreadcrumbs/>
+        </div>
       </header>
       
       {/* Main Content */}

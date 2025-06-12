@@ -5,7 +5,8 @@ import NotFound from './pages/NotFound';
 import AboutUs from './pages/AboutUs';
 import { Gallery } from './pages/Gallery';
 
-import { Automobile,GreaseBucket,Engineoil,Gearoil,Lubicatinggrease } from './pages/products/Product';
+import { Automobile,GreaseBucket,Engineoil,Gearoil,Lubicatinggrease,ProductLayout } from './pages/products/Product';
+import { path } from 'motion/react-client';
 
 
 const routes = [
@@ -17,6 +18,7 @@ const routes = [
   {
     path: '/products',
    children: [
+      
       {
         path: 'automotive-grease', 
         element: <Automobile />,

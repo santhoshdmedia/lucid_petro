@@ -16,8 +16,9 @@ import entrance from "../assets/employees/entrnace.webp";
 import { Link } from "react-router";
 import { motion } from "motion/react";
 import intro from '../assets/video/drone.mp4';
-import slide_one from '../assets/slide-1.webp'
-import slide_two from '../assets/slide_2.webp'
+import slide_one from '../assets/slide-1.jpg';
+import slide_two from '../assets/slide_2.jpg';
+import slide_three from '../assets/slide_3.jpg';
 import {
   FaWeightHanging,
   FaOilCan,
@@ -35,10 +36,10 @@ import {
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    { id: 1, image: slide_one, type: "image" },
-    { id: 2, image: intro, type: "video" },
+    { id: 1, image: intro, type: "video" },
+    { id: 2, image: slide_one, type: "image " },
     { id: 3, image: slide_two, type: "image" },
-    // { id: 4, image: item_four, type: "image" },
+    { id: 4, image: slide_three, type: "image" },
     // { id: 5, image: item_five, type: "image" },
     // { id: 6, image: item_six, type: "image" },
   ];
@@ -136,7 +137,7 @@ const Home = () => {
               ) : (
                 <img
                   src={slide.image}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full "
                   alt={`Slide ${index + 1}`}
                   loading={index === currentSlide ? "eager" : "lazy"}
                 />
@@ -179,7 +180,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="  sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem]  ">
+      <div className="  sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem] overflow-x-hidden ">
         <div className="my-16 sm:my-20 md:my-24 lg:my-32 ">
           <h1 className="text-center lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full w-[80%] font-bold mx-auto text-[#005f5a] mb-[2rem] relative group ">
             Our Products and Services
@@ -226,7 +227,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <section className="flex flex-col lg:flex-row gap-8 md:gap-10 items-center my-16 sm:my-20 md:my-24 lg:my-20 mx-10 lg:mx-0 md:mx-0 sm:mx-0">
+        <section className="flex flex-col lg:flex-row gap-8 md:gap-10 items-center my-16 sm:my-20 md:my-24 lg:my-20 mx-10 lg:mx-0 md:mx-0 sm:mx-0 overflow-x-hidden">
           <motion.div initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} className="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-lg">
             <img
               src={entrance}
@@ -251,8 +252,8 @@ const Home = () => {
         </section>
 
         {/* quotes */}
-        <motion.div initial={{ opacity: 0, y: -200 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="mt-16 sm:mt-20 md:mt-26 lg:mt-30 ">
-          <h1 className="text-center  lg:text-left md:text-left lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full font-bold mx-auto text-[#005f5a] mb-[2rem] relative group">
+        <motion.div initial={{ opacity: 0, y: -200 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="mt-16 sm:mt-20 md:mt-26 lg:mt-30 overflow-x-hidden">
+          <h1 className="text-center   lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full font-bold mx-auto text-[#005f5a] mb-[2rem] relative group bg-transparent">
             Lucid Lubricants – Redefining Excellence in Motion
             <span className="absolute bottom-[-30px] left-[50%] translate-x-[-50%] h-1.5 bg-[#84b5d3] w-1/6 transition-all duration-300 ease-in-out "></span>
           </h1>
@@ -296,7 +297,7 @@ const Home = () => {
 
 
       </div>
-      <section className=" sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem] bg-[#bdd8d6]">
+      <section className=" sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem] bg-[#bdd8d6] overflow-x-hidden">
         <section className="container mx-auto px-4 sm:px-6 py-16 lg:py-14 pb-20 relative ">
 
           <h2 className="text-md md:text-lg lg:text-xl text-[#005f5a] mb-4 text-center font-normal">Our Features</h2>
@@ -414,7 +415,7 @@ const Home = () => {
           </div>
         </section>
       </section>
-      <section className=" sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem]  py-16 lg:py-20 md:py-20 sm:py-16 relative">
+      <section className=" sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem]  py-16 lg:py-20 md:py-20 sm:py-16 relative overflow-x-hidden">
 
         <div className="object-cover w-full h-full absolute top-0 left-0 z-0 infrastructure__section" />
         {/* faq section */}

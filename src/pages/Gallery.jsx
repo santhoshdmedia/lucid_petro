@@ -30,6 +30,7 @@ import fac21 from '../assets/factory/fac21.webp';
 import fac22 from '../assets/factory/fac22.webp';
 import fac23 from '../assets/factory/fac23.webp';
 import fac24 from '../assets/factory/fac24.webp';
+import { AppBreadcrumbs } from '../components/layout';
 
 const galleryImages = [
   // Employee images
@@ -127,12 +128,19 @@ export const Gallery = () => {
 
   return (
     <section 
-      className="py-12 bg-gray-50 min-h-screen"
+      className="pb-12 bg-gray-50 min-h-screen"
       onKeyDown={handleKeyDown}
       tabIndex={0}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#005f5a] text-center mb-8">Our Gallery</h2>
+      <header className="w-full py-10  Gallery__section" >
+              <div className="container mx-auto px-4  z-40 relative ">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#f7f7f7] ">
+                 Our Gallery
+                </h1>
+                <AppBreadcrumbs/>
+              </div>
+            </header>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Category Filters */}
         <div className="flex justify-center mb-8 flex-wrap gap-2">
