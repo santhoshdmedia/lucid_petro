@@ -1,26 +1,138 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import whiteGrease from "../../assets/product/automible/white_lucid.png";
 import LithiumGrease from "../../assets/product/automible/lucid_lithium.png";
-
 import { Link } from "react-router";
-
-import { useNavigate } from "react-router";
 import { AppBreadcrumbs } from "../../components/layout";
+import { motion, useScroll, useTransform } from 'framer-motion';
+import './Product.css'
+
+import automotiveProduct from '../../assets/product/productone.webp';
+import engineOilProduct from '../../assets/product/producttwo.webp';
+import GearOilProduct from '../../assets/product/productThree.webp'
+import GreaseBucketProduct from '../../assets/product/productfour.webp'
+import LubricatingGreaseProduct from '../../assets/product/productFive.webp'
 
 
-
-
+const similarProducts = [
+  {
+    id: 1,
+    productName: "Automotive Grease",
+    productImg: automotiveProduct,
+    productDescription: "Versatile grease suitable for automotive and industrial applications",
+    productRoute: "/products/engine-oil"
+  },
+  {
+    id: 2,
+    productName: "Engine Oil",
+    productImg: engineOilProduct,
+    productDescription: "Advanced synthetic formula for superior engine protection",
+    productRoute: "/products/Gear-oil"
+  },
+  {
+    id: 3,
+    productName: "Gear oil",
+    productImg: GearOilProduct,
+    productDescription: "Specially formulated for high-temperature bearing applications",
+    productRoute: "/products/grease-bucket"
+  },
+  {
+    id: 4,
+    productName: "Grease Bucket",
+    productImg: GreaseBucketProduct,
+    productDescription: "High-performance oil for manual transmissions and differentials",
+    productRoute: "/products/lubricating-grease"
+  },
+  {
+    id: 5,
+    productName: "Lubricating Grease",
+    productImg: LubricatingGreaseProduct,
+    productDescription: "High-performance oil for manual transmissions and differentials",
+    productRoute: "/products/lubricating-grease"
+  },
+];
 export const ProductLayout = () => {
-  const navigate = useNavigate();
-  
-  useEffect(() => {
-    navigate('/');
-  }, [navigate]); 
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  return null; 
+  return (
+    <div className="">
+    {/* carosal */}
+      <section className="product__section flex flex-col px-10">
+        <h1 className="text-center lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full w-[80%] font-bold mx-auto text-[#005f5a] mb-[2rem] my-12">Products</h1>
+        <div className="w-full overflow-hidden">
+          <div className="flex h-[500px]">
+            {similarProducts.map((product, index) => (
+              <div
+                key={product.id}
+                className={`relative transition-all duration-500 ease-in-out overflow-hidden ${hoveredIndex === index ? 'w-[60%]' : 'w-1/5'
+                  }`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                {/* Background Image */}
+                <img
+                  src={product.productImg}
+                  className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 ${hoveredIndex === index ? 'scale-110' : 'scale-100'
+                    }`}
+                  alt={product.productName}
+                />
+
+                {/* Overlay Content */}
+                <div
+                  className={`absolute inset-0 bg-[#0000003b] flex items-end p-8 transition-opacity duration-300 ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'
+                    }`}
+                >
+                  <div className="text-white max-w-md">
+                    <h3 className="text-3xl font-bold">{product.productName}</h3>
+                    <p className="mt-2">{product.productDescription}</p>
+                    <a
+                      href={product.productRoute}
+                      className="mt-6 inline-flex items-center px-6 py-3 border border-[#005f5a] font-medium rounded-lg bg-[#005f5a] text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#005f5a] focus:ring-opacity-50"
+                    >
+                      View Product
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* products */}
+      <section className=" sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
+  {similarProducts.map((product) => (
+    <div 
+      key={product.id} 
+      className="group relative h-80 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all bg-[#bdd9d7]"
+    >
+      <img 
+        src={product.productImg} 
+        className="w-full h-full object-cover"
+        alt={product.productName}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+        <div className="text-white translate-y-4 group-hover:translate-y-0 transition-transform">
+          <h3 className="text-2xl font-bold">{product.productName}</h3>
+          <p className="mt-2 line-clamp-2">{product.productDescription}</p>
+          <a 
+            href={product.productRoute} 
+            className="inline-block mt-4 px-6 py-2 bg-primary rounded-lg font-medium hover:bg-primary/90 transition-colors"
+          >
+            View Details
+          </a>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+      </section>
+    </div>
+  );
 };
-export const LubricantProduct = ({ 
-  productData, 
+
+
+export const LubricantProduct = ({
+  productData,
   title,
   similarProductsTitle = "Similar Products",
   similarProductsDescription = "Explore these related products that might interest you",
@@ -38,48 +150,47 @@ export const LubricantProduct = ({
   return (
     <div className="bg-white">
       {/* Header Section */}
-      <header className="w-full py-10  product__section" >
+      <header className="w-full py-10  individual__product__section" >
         <div className="container mx-auto px-4  z-40 relative ">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#f7f7f7] ">
             {title}
           </h1>
-          <AppBreadcrumbs/>
+          <AppBreadcrumbs />
         </div>
       </header>
-      
+
       {/* Main Content */}
       <main className="px-4 sm:px-8 lg:px-16 xl:px-32 2xl:px-40 shadow-lg  rounded-lg mt-6 pb-6">
         {/* Tabs Navigation */}
-      <div className="relative w-full mt-12">
-  <nav 
-    className="flex gap-1 w-full justify-start bg-transparent relative overflow-hidden" 
-    role="tablist"
-    aria-orientation="horizontal"
-  >
-    {Object.keys(productData).map((tabKey) => (
-      <button
-        key={tabKey}
-        role="tab"
-        tabIndex={activeTab === tabKey ? 0 : -1}
-        aria-selected={activeTab === tabKey}
-        aria-controls={`${tabKey}-panel`}
-        id={`${tabKey}-tab`}
-        className={`px-4 py-2  transition-colors ${
-          activeTab === tabKey 
-            ? 'bg-[#000000] text-[#ffffff] font-medium ' 
-            : ' text-gray-600 cursor-pointer hover:bg-white hover:text-[#005f5a] font-normal'
-        }`}
-        onClick={() => setActiveTab(tabKey)}
-      >
-        {productData[tabKey].productName}
-      </button>
-    ))}
-    <span className="absolute inset-x-0 bottom-0 h-[1px] w-[100%] bg-[#d1d5dc] rounded-full lg:left-[0]" />
-  </nav>
-</div>
+        <div className="relative w-full mt-12">
+          <nav
+            className="flex gap-1 w-full justify-start bg-transparent relative overflow-hidden"
+            role="tablist"
+            aria-orientation="horizontal"
+          >
+            {Object.keys(productData).map((tabKey) => (
+              <button
+                key={tabKey}
+                role="tab"
+                tabIndex={activeTab === tabKey ? 0 : -1}
+                aria-selected={activeTab === tabKey}
+                aria-controls={`${tabKey}-panel`}
+                id={`${tabKey}-tab`}
+                className={`px-4 py-2  transition-colors ${activeTab === tabKey
+                  ? 'bg-[#000000] text-[#ffffff] font-medium '
+                  : ' text-gray-600 cursor-pointer hover:bg-white hover:text-[#005f5a] font-normal'
+                  }`}
+                onClick={() => setActiveTab(tabKey)}
+              >
+                {productData[tabKey].productName}
+              </button>
+            ))}
+            <span className="absolute inset-x-0 bottom-0 h-[1px] w-[100%] bg-[#d1d5dc] rounded-full lg:left-[0]" />
+          </nav>
+        </div>
 
         {/* Product Details Section */}
-        <section 
+        <section
           id={`${activeTab}-panel`}
           role="tabpanel"
           aria-labelledby={activeTab}
@@ -96,13 +207,13 @@ export const LubricantProduct = ({
                 height="400"
               />
             </div>
-            
+
             <div className="w-full lg:w-[48%] p-2 lg:p-8">
               <h2 className="text-3xl font-bold text-teal-900 mb-6 text-center mt-4 relative">
                 {productData[activeTab].productName}
                 <span className="absolute inset-x-0 bottom-[-30px] h-1 w-[30%] bg-teal-900 rounded-full left-1/2 transform -translate-x-1/2" />
               </h2>
-              
+
               <div className="overflow-x-auto mt-16">
                 <table className="table w-full">
                   <tbody>
@@ -115,14 +226,14 @@ export const LubricantProduct = ({
                   </tbody>
                 </table>
               </div>
-              
+
               <div className="mt-6">
                 <h3 className="text-2xl font-bold text-teal-900 mb-4">
                   Description
                 </h3>
                 <p className="text-gray-700">{productData[activeTab].description}</p>
               </div>
-              
+
               <div className="flex justify-center mt-8">
                 <button
                   onClick={() => toggleEnquiry(productData[activeTab])}
@@ -200,7 +311,7 @@ export const Automobile = () => {
   const productData = {
     whiteGrease: {
       productName: "White Lucid Automotive Grease",
-      image: whiteGrease,
+      image: automotiveProduct,
       description: "High-performance automotive grease designed for optimal lubrication and protection against wear. Ideal for various automotive applications including wheel bearings, chassis points, and universal joints.",
       specifications: [
         { label: "Form", value: "Grease" },
@@ -215,7 +326,7 @@ export const Automobile = () => {
     },
     lithiumGrease: {
       productName: "Automotive Lucid Lithium Grease",
-      image: whiteGrease,
+      image: automotiveProduct,
       description: "Premium lithium complex grease with extreme pressure additives. Provides excellent protection in high-load applications and performs well in both high and low temperature conditions.",
       specifications: [
         { label: "Form", value: "Grease" },
@@ -230,39 +341,39 @@ export const Automobile = () => {
     },
   };
 
-   const similarProducts = [
+  const similarProducts = [
     {
       id: 1,
       productName: "Engine Oil",
-      productImg: whiteGrease,
+      productImg: engineOilProduct,
       productDescription: "Versatile grease suitable for automotive and industrial applications",
       productRoute: "/products/engine-oil"
     },
     {
       id: 2,
       productName: "Gear Oil",
-      productImg: whiteGrease,
+      productImg: GearOilProduct,
       productDescription: "Advanced synthetic formula for superior engine protection",
       productRoute: "/products/Gear-oil"
     },
     {
       id: 3,
       productName: "Grease Bucket",
-      productImg: whiteGrease,
+      productImg: GreaseBucketProduct,
       productDescription: "Specially formulated for high-temperature bearing applications",
       productRoute: "/products/grease-bucket"
     },
     {
       id: 4,
       productName: "Lubricating Grease",
-      productImg: whiteGrease,
+      productImg: LubricatingGreaseProduct,
       productDescription: "High-performance oil for manual transmissions and differentials",
       productRoute: "/products/lubricating-grease"
     },
   ];
 
   return (
-    <LubricantProduct 
+    <LubricantProduct
       productData={productData}
       title="Automotive Lubricants"
       similarProducts={similarProducts}
@@ -271,11 +382,11 @@ export const Automobile = () => {
 };
 
 
-export const Engineoil =()=>{
+export const Engineoil = () => {
   const productData = {
     whiteGrease: {
       productName: "White Lucid Automotive Grease",
-      image: whiteGrease,
+      image: engineOilProduct,
       description: "High-performance automotive grease designed for optimal lubrication and protection against wear. Ideal for various automotive applications including wheel bearings, chassis points, and universal joints.",
       specifications: [
         { label: "Form", value: "Grease" },
@@ -290,7 +401,7 @@ export const Engineoil =()=>{
     },
     lithiumGrease: {
       productName: "Automotive Lucid Lithium Grease",
-      image: whiteGrease,
+      image: engineOilProduct,
       description: "Premium lithium complex grease with extreme pressure additives. Provides excellent protection in high-load applications and performs well in both high and low temperature conditions.",
       specifications: [
         { label: "Form", value: "Grease" },
@@ -304,40 +415,40 @@ export const Engineoil =()=>{
       ],
     },
   };
- 
+
   const similarProducts = [
     {
       id: 1,
       productName: "Automotive Grease",
-      productImg: whiteGrease,
+      productImg: automotiveProduct,
       productDescription: "Versatile grease suitable for automotive and industrial applications",
       productRoute: "/products/automotive-grease"
     },
     {
       id: 2,
       productName: "Gear oil",
-      productImg: whiteGrease,
+      productImg: GearOilProduct,
       productDescription: "Advanced synthetic formula for superior engine protection",
       productRoute: "/products/gear-oil"
     },
     {
       id: 3,
       productName: "Grease Bucket",
-      productImg: whiteGrease,
+      productImg: GreaseBucketProduct,
       productDescription: "Specially formulated for high-temperature bearing applications",
       productRoute: "/products/grease-bucket"
     },
     {
       id: 4,
       productName: "Lubricating Grease",
-      productImg: whiteGrease,
+      productImg: LubricatingGreaseProduct,
       productDescription: "High-performance oil for manual transmissions and differentials",
       productRoute: "/products/lubricating-grease"
     },
   ];
 
   return (
-    <LubricantProduct 
+    <LubricantProduct
       productData={productData}
       title="Engine oil"
       similarProducts={similarProducts}
@@ -345,11 +456,11 @@ export const Engineoil =()=>{
   );
 }
 
-export const Gearoil =()=>{
+export const Gearoil = () => {
   const productData = {
     whiteGrease: {
       productName: "White Lucid Automotive Grease",
-      image: whiteGrease,
+      image: GearOilProduct,
       description: "High-performance automotive grease designed for optimal lubrication and protection against wear. Ideal for various automotive applications including wheel bearings, chassis points, and universal joints.",
       specifications: [
         { label: "Form", value: "Grease" },
@@ -364,7 +475,7 @@ export const Gearoil =()=>{
     },
     lithiumGrease: {
       productName: "Automotive Lucid Lithium Grease",
-      image: whiteGrease,
+      image: GearOilProduct,
       description: "Premium lithium complex grease with extreme pressure additives. Provides excellent protection in high-load applications and performs well in both high and low temperature conditions.",
       specifications: [
         { label: "Form", value: "Grease" },
@@ -378,40 +489,40 @@ export const Gearoil =()=>{
       ],
     },
   };
- 
+
   const similarProducts = [
     {
       id: 1,
       productName: "Automotive Grease",
-      productImg: whiteGrease,
+      productImg: automotiveProduct,
       productDescription: "Versatile grease suitable for automotive and industrial applications",
       productRoute: "/products/automotive-grease"
     },
     {
       id: 2,
       productName: "engine oil",
-      productImg: whiteGrease,
+      productImg: engineOilProduct,
       productDescription: "Advanced synthetic formula for superior engine protection",
       productRoute: "/products/engine-oil"
     },
     {
       id: 3,
       productName: "Grease Bucket",
-      productImg: whiteGrease,
+      productImg: GreaseBucketProduct,
       productDescription: "Specially formulated for high-temperature bearing applications",
       productRoute: "/products/grease-bucket"
     },
     {
       id: 4,
       productName: "Lubricating Grease",
-      productImg: whiteGrease,
+      productImg: LubricatingGreaseProduct,
       productDescription: "High-performance oil for manual transmissions and differentials",
       productRoute: "/products/lubricating-grease"
     },
   ];
 
   return (
-    <LubricantProduct 
+    <LubricantProduct
       productData={productData}
       title="Gear oil"
       similarProducts={similarProducts}
@@ -419,11 +530,11 @@ export const Gearoil =()=>{
   );
 }
 
-export const GreaseBucket =()=>{
+export const GreaseBucket = () => {
   const productData = {
     whiteGrease: {
       productName: "White Lucid Automotive Grease",
-      image: whiteGrease,
+      image: GreaseBucketProduct,
       description: "High-performance automotive grease designed for optimal lubrication and protection against wear. Ideal for various automotive applications including wheel bearings, chassis points, and universal joints.",
       specifications: [
         { label: "Form", value: "Grease" },
@@ -438,7 +549,7 @@ export const GreaseBucket =()=>{
     },
     lithiumGrease: {
       productName: "Automotive Lucid Lithium Grease",
-      image: whiteGrease,
+      image: GreaseBucketProduct,
       description: "Premium lithium complex grease with extreme pressure additives. Provides excellent protection in high-load applications and performs well in both high and low temperature conditions.",
       specifications: [
         { label: "Form", value: "Grease" },
@@ -452,51 +563,51 @@ export const GreaseBucket =()=>{
       ],
     },
   };
- 
+
   const similarProducts = [
     {
       id: 1,
       productName: "Automotive Grease",
-      productImg: whiteGrease,
+      productImg: automotiveProduct,
       productDescription: "Versatile grease suitable for automotive and industrial applications",
       productRoute: "/products/automotive-grease"
     },
     {
       id: 2,
       productName: "Engine Oil",
-      productImg: whiteGrease,
+      productImg: engineOilProduct,
       productDescription: "Advanced synthetic formula for superior engine protection",
       productRoute: "/products/engine-oil"
     },
     {
       id: 3,
       productName: "Gear oil",
-      productImg: whiteGrease,
+      productImg: GearOilProduct,
       productDescription: "Specially formulated for high-temperature bearing applications",
       productRoute: "/products/gear-oil"
     },
     {
       id: 4,
       productName: "Lubricating Grease",
-      productImg: whiteGrease,
+      productImg: LubricatingGreaseProduct,
       productDescription: "High-performance oil for manual transmissions and differentials",
       productRoute: "/products/lubricating-grease"
     },
   ];
 
   return (
-    <LubricantProduct 
+    <LubricantProduct
       productData={productData}
       title="Grease Bucket"
       similarProducts={similarProducts}
     />
   );
 }
-export const Lubicatinggrease =()=>{
+export const Lubicatinggrease = () => {
   const productData = {
     whiteGrease: {
       productName: "White Lucid Automotive Grease",
-      image: whiteGrease,
+      image: LubricatingGreaseProduct,
       description: "High-performance automotive grease designed for optimal lubrication and protection against wear. Ideal for various automotive applications including wheel bearings, chassis points, and universal joints.",
       specifications: [
         { label: "Form", value: "Grease" },
@@ -511,7 +622,7 @@ export const Lubicatinggrease =()=>{
     },
     lithiumGrease: {
       productName: "Automotive Lucid Lithium Grease",
-      image: whiteGrease,
+      image: LubricatingGreaseProduct,
       description: "Premium lithium complex grease with extreme pressure additives. Provides excellent protection in high-load applications and performs well in both high and low temperature conditions.",
       specifications: [
         { label: "Form", value: "Grease" },
@@ -525,40 +636,40 @@ export const Lubicatinggrease =()=>{
       ],
     },
   };
- 
+
   const similarProducts = [
     {
       id: 1,
       productName: "Automotive Grease",
-      productImg: whiteGrease,
+      productImg: automotiveProduct,
       productDescription: "Versatile grease suitable for automotive and industrial applications",
       productRoute: "/products/automotive-grease"
     },
     {
       id: 2,
       productName: "Engine Oil",
-      productImg: whiteGrease,
+      productImg: engineOilProduct,
       productDescription: "Advanced synthetic formula for superior engine protection",
       productRoute: "/products/engine-oil"
     },
     {
       id: 3,
       productName: "Gear oil",
-      productImg: whiteGrease,
+      productImg: GearOilProduct,
       productDescription: "Specially formulated for high-temperature bearing applications",
       productRoute: "/products/gear-oil"
     },
     {
       id: 4,
       productName: "Grease Bucket",
-      productImg: whiteGrease,
+      productImg: GreaseBucketProduct,
       productDescription: "High-performance oil for manual transmissions and differentials",
       productRoute: "/products/grease-bucket"
     },
   ];
 
   return (
-    <LubricantProduct 
+    <LubricantProduct
       productData={productData}
       title="Grease Bucket"
       similarProducts={similarProducts}
@@ -634,7 +745,7 @@ export const EnquiryForm = ({ productName, onClose }) => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 text-black"
             />
           </div>
 
@@ -652,7 +763,7 @@ export const EnquiryForm = ({ productName, onClose }) => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 text-black"
             />
           </div>
 
@@ -669,7 +780,7 @@ export const EnquiryForm = ({ productName, onClose }) => {
               name="subject"
               value={formData.subject}
               onChange={handleChange}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 text-black"
             />
           </div>
 
@@ -686,7 +797,7 @@ export const EnquiryForm = ({ productName, onClose }) => {
               rows="4"
               value={formData.message}
               onChange={handleChange}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 text-black"
             />
           </div>
 

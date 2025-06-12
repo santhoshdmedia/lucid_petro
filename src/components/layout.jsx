@@ -505,6 +505,89 @@ if (hideBreadcrumbsRoutes.includes(location.pathname)) {
   );
 }
 
+import {  useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+export const LucidLoader = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isLoading) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#005f5a]">
+      {/* Animated Logo/Text */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-8"
+      >
+        <h1 className="text-4xl font-bold text-white">
+          <span className="text-[#bdd9d7]">LUCID</span> OILS
+        </h1>
+        <p className="text-center text-white/80 mt-2">Premium Lubricant Solutions</p>
+      </motion.div>
+
+      {/* Oil Droplets Animation */}
+      <div className="relative h-32 w-32">
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute bg-[#bdd9d7] rounded-full"
+            style={{
+              width: `${10 + i * 5}px`,
+              height: `${10 + i * 5}px`,
+              left: `${i * 25}px`,
+            }}
+            animate={{
+              y: [0, 40, 0],
+              opacity: [0.8, 1, 0.8],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              delay: i * 0.2,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Loading Bar */}
+      <motion.div 
+        className="h-1 bg-[#bdd9d7] mt-8 rounded-full"
+        initial={{ width: 0 }}
+        animate={{ width: "80%" }}
+        transition={{ 
+          duration: 2.5,
+          ease: "easeInOut"
+        }}
+      />
+
+      {/* Loading Percentage */}
+      <motion.div
+        className="text-white mt-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+      >
+        <motion.span
+          initial={{ number: 0 }}
+          animate={{ number: 100 }}
+          transition={{ duration: 2.5 }}
+        >
+          {({ number }) => `${Math.floor(number)}%`}
+        </motion.span>
+      </motion.div>
+    </div>
+  );
+};
+
 
 
 

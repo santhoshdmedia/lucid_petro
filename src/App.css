@@ -64,8 +64,8 @@ body {
 
 .product__section{
     width: 100%;
-    height: 300px;
-    background: url('assets/factory/fac23.webp') no-repeat center 60%  ;
+    /* height: 300px; */
+    background: url('assets/image.png') no-repeat  center center  ;
     background-size: cover;
     display: flex;
     justify-content: start;
@@ -74,13 +74,15 @@ body {
     z-index: 0;
 }
 
-.product__section::after{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    background: #00000067;
-    display: inline-block;
-    z-index: 10;
+.individual__product__section{
+     width: 100%;
+    height: 300px;
+    background: url('assets/factory/fac23.webp') no-repeat center 54%  ;
+    background-size: cover;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    position: relative;
+    z-index: 0;
 }
+

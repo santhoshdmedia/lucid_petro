@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import aboutVideo from '../assets/video/about.mp4';
-import ownerImg from "../assets/ownerAbout.JPG";
+import ownerImg from "../assets/owner.jpg";
 import aboutImg from '../assets/employees/emp2.webp'
 import { AppBreadcrumbs } from '../components/layout';
 
@@ -13,19 +13,7 @@ const progressItems = [
 const AboutUs = () => {
   const progressRef = useRef(null);
   const [visible, setVisible] = useState(false);
-   const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef(null);
 
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -57,15 +45,12 @@ const AboutUs = () => {
           <AppBreadcrumbs/>
         </div>
       </header>
-
-      
-
       {/* About Content Section */}
       <section className="container mx-auto px-4 sm:px-6 py-16 lg:py-14 ">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
           {/* Owner Image */}
           <div className="w-full lg:w-1/2">
-            <img src={ownerImg} alt="Company Owner" className="object-cover w-full h-full rounded-xl shadow-md" />
+            <img src={ownerImg} alt="Company Owner" className="object-cover w-full h-full rounded-xl drop-shadow-lg" />
           </div>
 
           {/* Text Content & Progress Bars */}
@@ -108,7 +93,6 @@ const AboutUs = () => {
       <div className="w-full h-[450px] lg:h-[600px] relative rounded-2xl overflow-hidden shadow-lg group">
         {/* Video element */}
         <video
-          ref={videoRef}
           src={aboutVideo}
           className="w-full h-full object-cover"
           poster="https://lucid-lubricants.com/wp-content/uploads/2023/10/lucid-lubricants-about-us.jpg"
@@ -116,27 +100,13 @@ const AboutUs = () => {
           loop
           playsInline
           aria-label="About our company"
-          onClick={togglePlay}
+         autoPlay
         />
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/20 flex items-center justify-center transition-opacity duration-300">
-          {/* Play/Pause button */}
-          <button
-            onClick={togglePlay}
-            className={`p-4 rounded-full bg-[#bdd9d7] hover:bg-white transition-all duration-300 ${isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}
-            aria-label={isPlaying ? "Pause video" : "Play video"}
-          >
-            {isPlaying ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[#005f5a]" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[#005f5a]" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-              </svg>
-            )}
-          </button>
+          
+         
         </div>
       </div>
     </section>

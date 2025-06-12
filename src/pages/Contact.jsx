@@ -13,22 +13,22 @@ const Contact = () => {
         message: ''
     });
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const response = await axios.post('https://lucid-server.vercel.app/send-email', formData);
-    //         toast.success(response.data.message || 'Message sent successfully!');
-    //         setFormData({
-    //             name: '',
-    //             to: '',
-    //             subject: '',
-    //             message: ''
-    //         });
-    //     } catch (error) {
-    //         console.error('Error sending message:', error);
-    //         toast.error(error.response?.data?.message || 'Failed to send message. Please try again later.');
-    //     }
-    // };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:3000/send-email', formData);
+            toast.success(response.data.message || 'Message sent successfully!');
+            setFormData({
+                name: '',
+                to: '',
+                subject: '',
+                message: ''
+            });
+        } catch (error) {
+            console.error('Error sending message:', error);
+            toast.error(error.response?.data?.message || 'Failed to send message. Please try again later.');
+        }
+    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -53,7 +53,7 @@ const Contact = () => {
   {/* Contact Header */}
   <div className="text-center my-12">
     
-    <p className=" text-teal-800 font-bold mx-auto text-lg lg:text-2xl md:text-xl w-[70%] ">
+    <p className=" text-teal-800 font-bold mx-auto text-lg lg:text-2xl md:text-xl ">
       Have questions about our products or services? Our team is ready to help you with expert advice and solutions tailored to your needs.
     </p>
   </div>

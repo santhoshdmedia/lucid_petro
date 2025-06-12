@@ -1,11 +1,4 @@
 import React, { useState, useEffect } from "react";
-import item_one from "../assets/item1.png";
-import item_two from "../assets/item2.png";
-import item_three from "../assets/item3.jpg";
-import item_four from "../assets/item4.jpg";
-import item_five from "../assets/item5.jpg";
-import item_six from "../assets/item6.jpg";
-// import grease from "../assets/product/engine_oil.png";
 import engineOil from "../assets/product/engine_oil.png";
 import lubricatingGrease from "../assets/product/lubegrease.jpg";
 import GearOil from "../assets/product/gearoil.jpg";
@@ -19,6 +12,9 @@ import intro from '../assets/video/drone.mp4';
 import slide_one from '../assets/slide-1.jpg';
 import slide_two from '../assets/slide_2.jpg';
 import slide_three from '../assets/slide_3.jpg';
+import slide_four from '../assets/slide_4.jpg';
+import slide_five from '../assets/slide_5.jpg';
+import slide_six from '../assets/slide_6.jpg';
 import {
   FaWeightHanging,
   FaOilCan,
@@ -37,11 +33,12 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     { id: 1, image: intro, type: "video" },
-    { id: 2, image: slide_one, type: "image " },
+    // { id: 2, image: slide_one, type: "image " },
     { id: 3, image: slide_two, type: "image" },
     { id: 4, image: slide_three, type: "image" },
-    // { id: 5, image: item_five, type: "image" },
-    // { id: 6, image: item_six, type: "image" },
+    { id: 5, image: slide_four, type: "image" },
+    { id: 6, image: slide_five, type: "image" },
+    { id: 7, image: slide_six, type: "image" },
   ];
   const products = [
     {

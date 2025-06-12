@@ -1,7 +1,7 @@
 // src/App.js
 import './App.css';
 import React from 'react';
-import { Navbar, Footer } from './components/layout';
+import { Navbar, Footer,LucidLoader } from './components/layout';
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
 import { AppBreadcrumbs } from './components/layout';
 import routes from './Routes';
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <Router >
-     
+      <LucidLoader/>
       <Navbar />
       {/* <AppBreadcrumbs /> */}
       <AppRoutes />

@@ -1,12 +1,16 @@
-// src/routes.js
 import Contact from './pages/Contact';
-import Home from './pages/Home'
+import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import AboutUs from './pages/AboutUs';
 import { Gallery } from './pages/Gallery';
-
-import { Automobile,GreaseBucket,Engineoil,Gearoil,Lubicatinggrease,ProductLayout } from './pages/products/Product';
-import { path } from 'motion/react-client';
+import { 
+  Automobile,
+  GreaseBucket,
+  Engineoil,
+  Gearoil,
+  Lubicatinggrease,
+  ProductLayout ,
+} from './pages/products/Product';
 
 
 const routes = [
@@ -14,50 +18,54 @@ const routes = [
     path: '/',
     element: <Home />,
     exact: true,
+    
   },
   {
     path: '/products',
-   children: [
-      
+    children: [
       {
-        path: 'automotive-grease', 
-        element: <Automobile />,
+        index: true,
+        element: <ProductLayout /> ,
+        
       },
       {
-        path: 'engine-oil', 
-        element: <Engineoil />,
+        path: 'automotive-grease',
+        element: <Automobile />
       },
       {
-        path: 'gear-oil', 
-        element: <Gearoil />,
+        path: 'engine-oil',
+        element: <Engineoil />
       },
       {
-        path: 'lubricating-grease', 
-        element: <Lubicatinggrease />,
+        path: 'gear-oil',
+        element: <Gearoil />
       },
       {
-        path: 'grease-bucket', 
-        element: <GreaseBucket />,
+        path: 'grease-bucket',
+        element: <GreaseBucket />
       },
-    ],
+      {
+        path: 'lubricating-grease',
+        element: <Lubicatinggrease />
+      }
+    ]
   },
-
   {
-    path: 'contact',
+    path: '/contact',
     element: <Contact />,
   },
   {
-    path: 'about-us',
+    path: '/about-us',
     element: <AboutUs />,
   },
   {
-    path: 'gallery',
+    path: '/gallery',
     element: <Gallery />,
   },
   {
     path: '*',
-    element: <Home />,
-  },
+    element: <NotFound />, // Changed from <Home /> to <NotFound />
+  }
 ];
 
 export default routes;
