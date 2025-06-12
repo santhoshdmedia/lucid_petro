@@ -237,12 +237,12 @@ const Home = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} className="w-full lg:w-1/2 space-y-6">
-            <h1 className="text-center lg:text-left md:text-left lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full  font-bold mx-auto text-[#005f5a] mb-[2rem] relative group ">
+            <h1 className="text-center lg:text-left md:text-left lg:text-4xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full  font-bold mx-auto text-[#005f5a] mb-[2rem] relative group ">
               Welcome to Lucid Petro Chemical
             </h1>
 
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#003a38]  leading-6 lg:leading-10 md:leading-6 text-justify  indent-10">
-              Since 2004, Lucid Petro Chemical has been a leading innovator in the lubricants and grease manufacturing industry. We specialize in high-performance automotive and industrial solutions, crafting tailor-made products that meet stringent quality, environmental, and operational standards. Leveraging cutting-edge technology and a state-of-the-art production facility, we ensure superior performance and sustainability. Our expert team is dedicated to research, development, and customer satisfaction, making us a trusted global partner. Committed to excellence, we continuously evolve to deliver advanced, eco-friendly solutions that drive efficiency and reliability across industries. Innovation, quality, and sustainability define our legacy.
+              Since 2004, Lucid Petro Chemical has been a leading innovator in the lubricants and grease manufacturing industry. We specialize in high-performance automotive and industrial solutions, crafting tailor-made products that meet stringent quality, environmental, and operational standards.  
             </p>
 
             <blockquote className="border-l-4 lg:border-[#005f5a] md:border-[#005f5a] border-none pl-4 italic text-lg sm:text-lg md:text-xl lg:text-2xl text-[#042524] lg:ml-[30%] md:ml-[30%] ml-8">
