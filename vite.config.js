@@ -9,8 +9,9 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  build:{
-    outDir:'../Live',
-    emptyOutDir: true,
+  resolve: {
+    alias: {
+      '@assets': path.resolve(__dirname, './src/assets')
+    }
   }
 })

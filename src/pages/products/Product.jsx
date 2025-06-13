@@ -5,7 +5,7 @@ import { AppBreadcrumbs } from "../../components/layout";
 // import './Product.css'
 
 import automotiveProduct from '../../assets/product/productone.webp';
-import engineOilProduct from '../../assets/product/producttwo.webp';
+import engineOilProduct from '../../assets/product/productTwo.webp';
 import GearOilProduct from '../../assets/product/productThree.webp'
 import GreaseBucketProduct from '../../assets/product/productfour.webp'
 import LubricatingGreaseProduct from '../../assets/product/productFive.webp'
