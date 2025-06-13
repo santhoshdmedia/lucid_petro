@@ -16,7 +16,7 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/send-email', formData);
+            const response = await axios.post('https://lucid-server01.onrender.com/send-email', formData);
             toast.success(response.data.message || 'Message sent successfully!');
             setFormData({
                 name: '',

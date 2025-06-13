@@ -4,17 +4,17 @@ import lubricatingGrease from "../assets/product/lubegrease.jpg";
 import GearOil from "../assets/product/gearoil.jpg";
 import automobile from "../assets/product/grease2.jpg";
 import blockqotes from "../assets/blockquotes.png";
-import owner from "../assets/owner.webp";
 import entrance from "../assets/employees/entrnace.webp";
 import { Link } from "react-router";
 import { motion } from "motion/react";
 import intro from '../assets/video/drone.mp4';
-import slide_one from '../assets/slide-1.jpg';
 import slide_two from '../assets/slide_2.jpg';
-import slide_three from '../assets/slide_3.jpg';
+import slide_three from '../assets/slide_3.webp';
 import slide_four from '../assets/slide_4.jpg';
 import slide_five from '../assets/slide_5.jpg';
 import slide_six from '../assets/slide_6.jpg';
+import Production_video from "../assets/video/production_one.mp4"
+
 import {
   FaWeightHanging,
   FaOilCan,
@@ -32,7 +32,8 @@ import {
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    { id: 1, image: intro, type: "video" },
+    { id: 1, image: Production_video, type: "video" },
+    { id: 2, image: intro, type: "video" },
     // { id: 2, image: slide_one, type: "image " },
     { id: 3, image: slide_two, type: "image" },
     { id: 4, image: slide_three, type: "image" },
@@ -74,7 +75,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [slides.length]);
 
