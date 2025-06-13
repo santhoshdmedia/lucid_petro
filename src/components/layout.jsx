@@ -420,15 +420,15 @@ export const Footer = () => {
           <div className="flex flex-col items-start mt-6 gap-3 text-white text-base">
             <p className="flex items-center gap-2">
               <FaPhoneAlt className="text-xl" />
-              +91 12345 67890
+              +91 74026 23998
             </p>
             <p className="flex items-center gap-2">
               <FaEnvelope className="text-xl" />
-              info@lucidpetrochemical.com
+              lucidpetrochemical@gmail.com
             </p>
             <p className="flex items-start gap-2">
               <FaMapMarkerAlt className="text-xl mt-1" />
-              Thuraiyur, Srirangam, Tiruchirappalli-621004
+              Kottathur, Thuraiyur, Tiruchirappalli-621004
               
             </p>
           </div>
@@ -456,7 +456,7 @@ export const Footer = () => {
       </footer>
       <div className="bg-[#003a38] text-[#BDD9D7] py-4">
         <p className="text-center text-sm">
-          &copy; {new Date().getFullYear()} Lucid Industries Ltd. All rights reserved. Developed by Dmedia Trichy
+          &copy; {new Date().getFullYear()} Lucid Industries Ltd. All rights reserved. Developed by Dmedia 
         </p>
       </div>
     </>
@@ -508,33 +508,43 @@ if (hideBreadcrumbsRoutes.includes(location.pathname)) {
 import {  useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-export const LucidLoader = () => {
-  const [isLoading, setIsLoading] = useState(true);
+export const LucidLoader = ({ nav, duration = 3000 }) => {
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    const startTime = Date.now();
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const newProgress = Math.min((elapsed / duration) * 100, 100);
+      setProgress(newProgress);
+    }, 30);
 
-  if (!isLoading) return null;
+    return () => clearInterval(interval);
+  }, [nav, duration]);
+
+  if (progress >= 100) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#005f5a]">
-      {/* Animated Logo/Text */}
+    <div 
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#005f5a]"
+      role="status"
+      aria-label="Loading"
+    >
+      {/* Animated Branding */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="mb-8"
+        className="mb-8 text-center"
       >
         <h1 className="text-4xl font-bold text-white">
-          <span className="text-[#bdd9d7]">LUCID</span> OILS
+          <span className="text-[#bdd9d7]">LUCID</span> OILS & Grease
         </h1>
-        <p className="text-center text-white/80 mt-2">Premium Lubricant Solutions</p>
+        <p className="text-white/80 mt-2">Lucidi Petro Chemical</p>
       </motion.div>
 
       {/* Oil Droplets Animation */}
-      <div className="relative h-32 w-32">
+      <div className="relative h-32 w-32 mb-8">
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
@@ -543,51 +553,45 @@ export const LucidLoader = () => {
               width: `${10 + i * 5}px`,
               height: `${10 + i * 5}px`,
               left: `${i * 25}px`,
+              bottom: 0,
             }}
             animate={{
-              y: [0, 40, 0],
-              opacity: [0.8, 1, 0.8],
+              y: [0, -40, 0],
+              opacity: [0.6, 1, 0.6],
             }}
             transition={{
-              duration: 1.5,
+              duration: 1.8,
               repeat: Infinity,
-              delay: i * 0.2,
+              delay: i * 0.3,
               ease: "easeInOut",
             }}
+            aria-hidden="true"
           />
         ))}
       </div>
 
-      {/* Loading Bar */}
-      <motion.div 
-        className="h-1 bg-[#bdd9d7] mt-8 rounded-full"
-        initial={{ width: 0 }}
-        animate={{ width: "80%" }}
-        transition={{ 
-          duration: 2.5,
-          ease: "easeInOut"
-        }}
-      />
+      {/* Progress Bar */}
+      <div className="w-64 h-2 bg-white/20 rounded-full overflow-hidden mb-2">
+        <motion.div
+          className="h-full bg-[#bdd9d7] rounded-full"
+          initial={{ width: 0 }}
+          animate={{ width: `${progress}%` }}
+          transition={{ ease: "linear" }}
+        />
+      </div>
 
-      {/* Loading Percentage */}
-      <motion.div
-        className="text-white mt-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        <motion.span
-          initial={{ number: 0 }}
-          animate={{ number: 100 }}
-          transition={{ duration: 2.5 }}
-        >
-          {({ number }) => `${Math.floor(number)}%`}
-        </motion.span>
-      </motion.div>
+      {/* Percentage Indicator */}
+      <span className="text-white text-sm font-medium">
+        {Math.floor(progress)}%
+      </span>
+
+      {/* Loading Message */}
+      <p className="text-white/80 mt-4 text-sm">
+        Loading {nav || 'content'}...
+      </p>
     </div>
   );
 };
-
 
 
 

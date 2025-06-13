@@ -86,3 +86,35 @@ body {
     z-index: 0;
 }
 
+/* about */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 95, 90, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: -1;
+}
+
+/* .leader__section{
+     width: 100%;
+    background: url('assets/oils_bg.jpg') no-repeat center   ;
+    background-size: cover;
+    
+    position: relative;
+    z-index: 0;
+} */
+

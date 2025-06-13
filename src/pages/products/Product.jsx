@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-import whiteGrease from "../../assets/product/automible/white_lucid.png";
-import LithiumGrease from "../../assets/product/automible/lucid_lithium.png";
+import { useLocation } from 'react-router-dom';
 import { Link } from "react-router";
 import { AppBreadcrumbs } from "../../components/layout";
-import { motion, useScroll, useTransform } from 'framer-motion';
 import './Product.css'
 
 import automotiveProduct from '../../assets/product/productone.webp';
@@ -11,6 +9,8 @@ import engineOilProduct from '../../assets/product/producttwo.webp';
 import GearOilProduct from '../../assets/product/productThree.webp'
 import GreaseBucketProduct from '../../assets/product/productfour.webp'
 import LubricatingGreaseProduct from '../../assets/product/productFive.webp'
+import { LucidLoader } from "../../components/layout";
+import oilBg from '../../assets/oils_bg.jpg'
 
 
 const similarProducts = [
@@ -52,9 +52,23 @@ const similarProducts = [
 ];
 export const ProductLayout = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+
+  // Show loader on initial load and route changes
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => setIsLoading(false), 2500);
+    return () => clearTimeout(timer);
+  }, [location.key]);
+
+  if (isLoading) {
+    return <LucidLoader nav="Product Catalog" duration={2500} />;
+  }
 
   return (
     <div className="">
+      <LucidLoader nav="Product Catalog" duration={2500} />
     {/* carosal */}
       <section className="product__section flex flex-col px-10">
         <h1 className="text-center lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full w-[80%] font-bold mx-auto text-[#005f5a] mb-[2rem] my-12">Products</h1>
@@ -116,7 +130,7 @@ export const ProductLayout = () => {
           <p className="mt-2 line-clamp-2">{product.productDescription}</p>
           <a 
             href={product.productRoute} 
-            className="inline-block mt-4 px-6 py-2 bg-primary rounded-lg font-medium hover:bg-primary/90 transition-colors"
+            className="inline-block mt-4 px-6 py-2 bg-[#005f5a] text-white rounded-lg font-medium hover:bg-primary/90 transition-colors"
           >
             View Details
           </a>

@@ -3,6 +3,9 @@ import aboutVideo from '../assets/video/about.mp4';
 import ownerImg from "../assets/owner.jpg";
 import aboutImg from '../assets/employees/emp2.webp'
 import { AppBreadcrumbs } from '../components/layout';
+import { TbTargetArrow } from "react-icons/tb";
+import { FaEye } from "react-icons/fa6";
+import { FaHandHoldingHeart } from "react-icons/fa";
 
 const progressItems = [
   { label: 'Quality Control', value: 100 },
@@ -42,7 +45,7 @@ const AboutUs = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#f7f7f7] ">
             About Us
           </h1>
-          <AppBreadcrumbs/>
+          <AppBreadcrumbs />
         </div>
       </header>
       {/* About Content Section */}
@@ -60,7 +63,7 @@ const AboutUs = () => {
             </h2>
 
             <p className="text-gray-600 text-lg leading-relaxed mb-8 indent-8 text-justify">
-              Established in 2004, Lucid Petro Chemical is a forward-thinking lubricant and grease manufacturing company headquartered in India. We serve a diverse range of industries—automotive, industrial, energy, and more—offering environmentally responsible, high-performance oils and greases.We are also an environmental technology company offering cost-effective, sustainable solutions to reduce emissions in diesel engines, industrial boilers, and power plants.
+              Founded in 2004, Lucid Petro Chemical is a leading Indian manufacturer of high-performance lubricants and greases, serving industries like automotive, industrial machinery, and energy. We specialize in eco-friendly formulations that enhance efficiency while minimizing environmental impact. Beyond lubrication, we pioneer sustainable emission-reduction technologies for diesel engines, industrial boilers, and power plants. Our cost-effective solutions help businesses lower their carbon footprint without compromising performance. Committed to innovation and sustainability, Lucid Petro Chemical bridges cutting-edge technology with industrial reliability, ensuring cleaner operations and longer equipment life across global markets.
             </p>
 
 
@@ -85,56 +88,115 @@ const AboutUs = () => {
           </div>
         </div>
 
-     
+
       </section>
 
-     {/* Intro Video Section */}
+      {/* Intro Video Section */}
       <section className="container mx-auto px-4 sm:px-6 py-16 lg:py-14">
-      <div className="w-full h-[450px] lg:h-[600px] relative rounded-2xl overflow-hidden shadow-lg group">
-        {/* Video element */}
-        <video
-          src={aboutVideo}
-          className="w-full h-full object-cover"
-          poster="https://lucid-lubricants.com/wp-content/uploads/2023/10/lucid-lubricants-about-us.jpg"
-          muted
-          loop
-          playsInline
-          aria-label="About our company"
-         autoPlay
-        />
-        
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/20 flex items-center justify-center transition-opacity duration-300">
-          
-         
+        <div className="w-full h-[450px] lg:h-[600px] relative rounded-2xl overflow-hidden shadow-lg group">
+          {/* Video element */}
+          <video
+            src={aboutVideo}
+            className="w-full h-full object-cover"
+            poster="https://lucid-lubricants.com/wp-content/uploads/2023/10/lucid-lubricants-about-us.jpg"
+            muted
+            loop
+            playsInline
+            aria-label="About our company"
+            autoPlay
+          />
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/20 flex items-center justify-center transition-opacity duration-300">
+
+
+          </div>
         </div>
-      </div>
-    </section>
-    <section className="container mx-auto px-4 sm:px-6 pb-16 lg:pb-24 py-12 rounded-xl">
-  <h2 className="text-3xl font-bold text-center text-[#005f5a] mb-12">Our Environmental Leadership Pathway</h2>
-  
-  <div className="relative  mx-auto">
-    {/* Timeline line */}
-    <div className="absolute left-1/2 w-1 h-full bg-[#BDD9D7] transform -translate-x-1/2"></div>
-    
-    {[
-      "Emulsified diesel fuel solutions reducing emissions",
-      "Industrial boiler fuel innovations",
-      "Global lubrication consulting network",
-      "Training programs & knowledge sharing"
-    ].map((item, index) => (
-      <div key={index} className={`mb-8 flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center`}>
-        <div className="w-6 h-6 rounded-full bg-[#005f5a] border-4 border-white z-10"></div>
-        <div className={`w-5/12 p-4 rounded-lg ${index % 2 === 0 ? 'ml-4' : 'mr-4'} bg-white shadow-md`}>
-          <p className="text-gray-800 text-sm lg:text-lg font-bold">{item}</p>
+      </section>
+      <section className="container mx-auto w-full px-4 sm:px-6 pb-16 lg:pb-24 py-12 rounded-xl leader__section">
+        <WhoWeAre/>
+      </section>
+      
+      <section className="container mx-auto px-4 sm:px-6 py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Vision Card */}
+          <div className="glass-card group hover:scale-[1.02] transition-all duration-300">
+            <div className="p-6 flex flex-col items-center text-center h-full">
+              <TbTargetArrow className='text-6xl text-[#005f5a] mb-4 group-hover:text-[#00857e] transition-colors' />
+              <h3 className="text-xl font-semibold mb-2 text-[#005f5a]">Vision</h3>
+              <p className="text-gray-700">Global leader in innovative, eco-friendly lubricants enhancing performance and sustainability</p>
+            </div>
+          </div>
+
+          {/* Mission Card */}
+          <div className="glass-card group hover:scale-[1.02] transition-all duration-300">
+            <div className="p-6 flex flex-col items-center text-center h-full">
+              <FaEye className='text-6xl text-[#005f5a] mb-4 group-hover:text-[#00857e] transition-colors' />
+              <h3 className="text-xl font-semibold mb-2 text-[#005f5a]">Mission</h3>
+              <p className="text-gray-700">Deliver high-quality lubrication solutions while reducing environmental impact</p>
+            </div>
+          </div>
+
+          {/* Values Card */}
+          <div className="glass-card group hover:scale-[1.02] transition-all duration-300">
+            <div className="p-6 flex flex-col items-center text-center h-full">
+              <FaHandHoldingHeart className='text-6xl text-[#005f5a] mb-4 group-hover:text-[#00857e] transition-colors' />
+              <h3 className="text-xl font-semibold mb-2 text-[#005f5a]">Values</h3>
+              <div className="flex flex-wrap justify-center gap-2">
+                <p className="text-gray-700">
+                  Innovation | Sustainability | Quality | Customer Trust | Environmental Responsibility
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
     </div>
   );
 };
+
+export const WhoWeAre = () => {
+  return (
+    <section className=" bg-white">
+      <div className="w-full mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#005f5a] mb-8 text-center">
+          Who We Are
+        </h2>
+        
+        <div className="bg-[#f9f9f9] rounded-xl p-8 md:p-10 shadow-md">
+            <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
+            Established in 2004, our leadership team brings decades of combined experience in the 
+            petrochemical industry. With manufacturing facilities across India, we operate under 
+            the core values of innovation, sustainability, quality, and environmental responsibility.
+          </p>
+          <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
+           Lucid Petro Chemical is a trusted manufacturer and supplier of premium-grade lubricants, oils, and greases, crafted under a technology license agreement with Baldwin Petroleum Technologies, Canada. Headquartered in Trichy, Tamil Nadu, we are committed to delivering superior lubrication solutions that enhance machinery performance, improve fuel efficiency, and extend equipment life.
+          </p>
+          
+        
+          
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-[#005f5a] text-white p-4 rounded-lg text-center">
+              <h3 className="text-xl font-semibold mb-2">10+ Years</h3>
+              <p className="text-[#bdd9d7]">Industry Experience</p>
+            </div>
+            
+            <div className="bg-[#005f5a] text-white p-4 rounded-lg text-center">
+              <h3 className="text-xl font-semibold mb-2">3+ Locations</h3>
+              <p className="text-[#bdd9d7]">Across India</p>
+            </div>
+            
+            <div className="bg-[#005f5a] text-white p-4 rounded-lg text-center">
+              <h3 className="text-xl font-semibold mb-2">100+ Clients</h3>
+              <p className="text-[#bdd9d7]">Served Globally</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 
 
 export default AboutUs;
