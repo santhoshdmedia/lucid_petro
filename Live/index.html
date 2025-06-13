@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon01-Cq5FkKWE.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucid</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <script type="module" crossorigin src="/assets/index-DBwDvq2D.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Ci28AHAD.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Draggable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+
+  <!-- gsp animation -->
+  <script>
+    // use a script tag or an external JS file
+    document.addEventListener("DOMContentLoaded", (event) => {
+      gsap.registerPlugin(ScrollTrigger)
+      // gsap code here!
+
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      let sections = gsap.utils.toArray(".car-card");
+
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 2),
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".vehicle-slider ",
+          pin: true,
+          scrub: 2,
+          snap: 1 / (sections.length - 1),
+          start: "center center",
+          end: () => "+=" + document.querySelector(".vehicle-slider ").offsetWidth
+        }
+      });
+
+
+    });
+  </script>
+</body>
+
+</html>
