@@ -10,8 +10,8 @@ import { motion } from "motion/react";
 import intro from '../assets/video/drone.mp4';
 import slide_two from '../assets/slide_2.jpg';
 import slide_three from '../assets/slide_3.webp';
-import slide_four from '../assets/slide_4.jpg';
-import slide_five from '../assets/slide_5.jpg';
+import slide_four from '../assets/slide_4.webp';
+import slide_five from '../assets/slide_5.webp';
 import slide_six from '../assets/slide_6.jpg';
 import Production_video_one from "../assets/video/production_one.mp4"
 import Production_video_two from "../assets/video/production_two.mp4"
