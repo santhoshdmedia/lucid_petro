@@ -13,7 +13,8 @@ import slide_three from '../assets/slide_3.webp';
 import slide_four from '../assets/slide_4.jpg';
 import slide_five from '../assets/slide_5.jpg';
 import slide_six from '../assets/slide_6.jpg';
-import Production_video from "../assets/video/production_one.mp4"
+import Production_video_one from "../assets/video/production_one.mp4"
+import Production_video_two from "../assets/video/production_two.mp4"
 
 import {
   FaWeightHanging,
@@ -32,14 +33,15 @@ import {
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    { id: 1, image: Production_video, type: "video" },
-    { id: 2, image: intro, type: "video" },
+    { id: 1, image: Production_video_one, type: "video" },
+    { id: 2, image: Production_video_two, type: "video" },
+    { id: 3, image: intro, type: "video" },
     // { id: 2, image: slide_one, type: "image " },
-    { id: 3, image: slide_two, type: "image" },
-    { id: 4, image: slide_three, type: "image" },
-    { id: 5, image: slide_four, type: "image" },
-    { id: 6, image: slide_five, type: "image" },
-    { id: 7, image: slide_six, type: "image" },
+    { id: 4, image: slide_two, type: "image" },
+    { id: 5, image: slide_three, type: "image" },
+    { id: 6, image: slide_four, type: "image" },
+    { id: 7, image: slide_five, type: "image" },
+    { id: 8, image: slide_six, type: "image" },
   ];
   const products = [
     {
