@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from 'react-router-dom';
 import { Link } from "react-router";
 import { AppBreadcrumbs } from "../../components/layout";
-import './Product.css'
+// import './Product.css'
 
 import automotiveProduct from '../../assets/product/productone.webp';
 import engineOilProduct from '../../assets/product/producttwo.webp';
