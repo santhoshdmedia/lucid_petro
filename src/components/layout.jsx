@@ -23,7 +23,7 @@ export const Navbar = () => {
         { path: "/products/lubricating-grease", label: "Lubricating Grease" },
       ],
     },
-    { path: "/contact", label: "Contact" },
+    { path: "/contact", label: "Contact us" },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -375,7 +375,7 @@ export const Footer = () => {
       <div className="bg-[#003a38] text-[#BDD9D7] py-4">
         <p className="text-center text-sm">
           &copy; {new Date().getFullYear()} Lucid Industries Ltd. All rights
-          reserved. Developed by Dmedia
+          reserved. Developed by <a href="https://www.dmedia.in/" target="_blank" className="cursor-pointer">Dmedia</a>
         </p>
       </div>
     </>

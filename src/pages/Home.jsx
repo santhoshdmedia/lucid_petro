@@ -109,6 +109,7 @@ const Home = () => {
 
   return (
     <div className="">
+      {/* slider */}
       <div className="relative">
         <div className="carousel w-full lg:h-[85.5vh] md:h-[70vh] h-[30vh] relative overflow-hidden">
           {/* Slides */}
@@ -180,6 +181,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/* about content */}
       <div className="  sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem] overflow-x-hidden ">
         <div className="my-16 sm:my-20 md:my-24 lg:my-32 ">
           <h1 className="text-center lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full w-[80%] font-bold mx-auto text-[#005f5a] mb-[2rem] relative group ">
@@ -297,6 +299,7 @@ const Home = () => {
 
 
       </div>
+      {/* why choose us section */}
       <section className=" sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem] bg-[#bdd8d6] overflow-x-hidden">
         <section className="container mx-auto px-4 sm:px-6 py-16 lg:py-14 pb-20 relative ">
 
@@ -325,7 +328,7 @@ const Home = () => {
               </h3>
 
               {/* Hidden paragraph that appears on hover */}
-              <p className="text-gray-600 text-center absolute inset-0 flex items-center justify-center bg-[#ffffff] bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-xl">
+              <p className="text-gray-600 text-center absolute inset-0 flex items-center justify-center border-2 border-dashed m-5 rounded-2xl border-[#005f5a] bg-[#ffffff] bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-xl">
                 We recommend what's right, not what we sell
               </p>
 
@@ -352,7 +355,7 @@ const Home = () => {
               </h3>
 
               {/* Hidden paragraph that appears on hover */}
-              <p className="text-gray-600 text-center absolute inset-0 flex items-center justify-center bg-[#ffffff] bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-xl">
+              <p className="text-gray-600 text-center absolute inset-0 flex items-center justify-center bg-[#ffffff] bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-xl border-2 border-dashed m-5 rounded-2xl">
                  We work worldwide in multiple languages
               </p>
 
@@ -379,7 +382,7 @@ const Home = () => {
               </h3>
 
               {/* Hidden paragraph that appears on hover */}
-              <p className="text-gray-600 text-center absolute inset-0 flex items-center justify-center bg-[#ffffff] bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-xl">
+              <p className="text-gray-600 text-center absolute inset-0 flex items-center justify-center bg-[#ffffff] bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-xl border-2 border-dashed m-5 rounded-2xl">
                   Our focus is knowledge and support, not just products.
               </p>
 
@@ -406,7 +409,7 @@ const Home = () => {
               </h3>
 
               {/* Hidden paragraph that appears on hover */}
-              <p className="text-gray-600 text-center absolute inset-0 flex items-center justify-center bg-[#ffffff] bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-xl">
+              <p className="text-gray-600 text-center absolute inset-0 flex items-center justify-center bg-[#ffffff] bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-xl border-2 border-dashed m-5 rounded-2xl">
                  Decades of experience since 2004
               </p>
 
