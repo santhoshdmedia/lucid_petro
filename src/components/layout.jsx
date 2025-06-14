@@ -101,7 +101,7 @@ export const Navbar = () => {
                   {/* Dropdown Menu */}
                   <div
                     id={`dropdown-${item.label}`}
-                    className={`absolute left-0 top-[5rem] mt-2 w-56 origin-top-left rounded-md bg-[#004a46] shadow-lg   transition-all duration-200 ${
+                    className={`absolute left-0 top-[5rem] mt-2 w-56 origin-top-left rounded-md bg-[#034a9a] shadow-lg   transition-all duration-200 ${
                       openDropdown === item.label
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-95 pointer-events-none"
@@ -372,7 +372,7 @@ export const Footer = () => {
           </Link>
         </nav>
       </footer>
-      <div className="bg-[#003a38] text-[#BDD9D7] py-4">
+      <div className="bg-[#1482aa] text-[#ffffff] py-4">
         <p className="text-center text-sm">
           &copy; {new Date().getFullYear()} Lucid Industries Ltd. All rights
           reserved. Developed by <a href="https://www.dmedia.in/" target="_blank" className="cursor-pointer">Dmedia</a>

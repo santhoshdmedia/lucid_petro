@@ -53,24 +53,24 @@ const Contact = () => {
   {/* Contact Header */}
   <div className="text-center my-12">
     
-    <p className=" text-teal-800 font-bold mx-auto text-lg lg:text-2xl md:text-xl ">
+    <p className=" text-[#034a9a] font-bold mx-auto text-lg lg:text-2xl md:text-xl ">
       Have questions about our products or services? Our team is ready to help you with expert advice and solutions tailored to your needs.
     </p>
   </div>
 
   {/* Contact Container */}
-  <section className="flex flex-col lg:flex-row items-center gap-8 justify-between text-teal-900 my-8 sm:my-12 md:my-16 lg:my-20 rounded-2xl shadow-lg overflow-hidden bg-gradient-to-r from-teal-50 to-white">
+  <section className="flex flex-col lg:flex-row items-center gap-8 justify-between text-[#034a9a] my-8 sm:my-12 md:my-16 lg:my-20 rounded-2xl shadow-lg overflow-hidden bg-gradient-to-r from-[#1482aa] to-white">
     {/* Contact Info Section */}
     <div className="w-full h-full lg:w-1/2 p-6 sm:p-8 lg:p-12">
       <h2 className="text-2xl sm:text-3xl font-bold mb-6">Our Contact Information</h2>
-      <p className="text-teal-800 mb-8 text-lg leading-relaxed">
+      <p className="text-[#034a9a] mb-8 text-lg leading-relaxed">
         Whether you need technical support, product information, or want to discuss partnership opportunities, we're here to assist you.
       </p>
 
       <div className="space-y-6">
         <div className="flex items-start bg-white p-4 rounded-lg shadow-sm">
-          <div className="bg-teal-100 p-3 rounded-full mr-4">
-            <FaPhoneAlt className="h-5 w-5 text-teal-900" />
+          <div className="bg-[#1482aa] p-3 rounded-full mr-4">
+            <FaPhoneAlt className="h-5 w-5 text-[#ffffff]" />
           </div>
           <div>
             <h3 className="font-semibold text-lg mb-1">Phone</h3>
@@ -80,8 +80,8 @@ const Contact = () => {
         </div>
 
         <div className="flex items-start bg-white p-4 rounded-lg shadow-sm">
-          <div className="bg-teal-100 p-3 rounded-full mr-4">
-            <FaEnvelope className="h-5 w-5 text-teal-900" />
+          <div className="bg-[#1482aa] p-3 rounded-full mr-4">
+            <FaEnvelope className="h-5 w-5 text-[#ffffff]" />
           </div>
           <div>
             <h3 className="font-semibold text-lg mb-1">Email</h3>
@@ -92,8 +92,8 @@ const Contact = () => {
         </div>
 
         <div className="flex items-start bg-white p-4 rounded-lg shadow-sm">
-          <div className="bg-teal-100 p-3 rounded-full mr-4">
-            <FaMapMarkerAlt className="h-5 w-5 text-teal-900" />
+          <div className="bg-[#1482aa] p-3 rounded-full mr-4">
+            <FaMapMarkerAlt className="h-5 w-5 text-[#ffffff]" />
           </div>
           <div>
             <h3 className="font-semibold text-lg mb-1">Headquarters</h3>
@@ -116,7 +116,7 @@ const Contact = () => {
             <a 
               key={index} 
               href="#" 
-              className="bg-white p-3 rounded-full shadow-sm text-teal-900 hover:bg-teal-100 transition-colors"
+              className="bg-white p-3 rounded-full shadow-sm text-[#034a9a] hover:bg-teal-100 transition-colors"
               aria-label={`Follow us on ${Icon.name.replace('Fa', '')}`}
             >
               <Icon className="h-5 w-5" />
@@ -132,7 +132,7 @@ const Contact = () => {
       className="w-full lg:w-1/2 bg-white p-6 sm:p-8 lg:p-12 space-y-6 rounded-2xl shadow-lg  "
       aria-labelledby="form-title"
     >
-      <h3 id="form-title" className="text-2xl font-bold text-teal-900 mb-2">Send us a message</h3>
+      <h3 id="form-title" className="text-2xl font-bold text-[#034a9a] mb-2">Send us a message</h3>
       <p className="text-gray-600 mb-6">Fill out the form below and we'll get back to you as soon as possible.</p>
 
       <div className="space-y-5">
@@ -144,7 +144,7 @@ const Contact = () => {
             type="text"
             id="name"
             name="name"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#034a9a] focus:border-[#034a9a] transition focus:outline-none"
             placeholder="John Doe"
             value={formData.name}
             onChange={handleInputChange}
@@ -160,7 +160,7 @@ const Contact = () => {
             type="email"
             id="email"
             name="to"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#034a9a] focus:border-[#034a9a] transition focus:outline-none"
             placeholder="your.email@example.com"
             value={formData.to}
             onChange={handleInputChange}
@@ -176,7 +176,7 @@ const Contact = () => {
             type="tel"
             id="phone"
             name="phone"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#034a9a] focus:border-[#034a9a] transition focus:outline-none"
             placeholder="+1 (555) 123-4567"
             value={formData.phone || ''}
             onChange={handleInputChange}
@@ -190,7 +190,7 @@ const Contact = () => {
           <select
             id="subject"
             name="subject"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#034a9a] focus:border-[#034a9a] transition focus:outline-none"
             value={formData.subject}
             onChange={handleInputChange}
           >
@@ -211,7 +211,7 @@ const Contact = () => {
             id="message"
             name="message"
             rows="5"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-900 focus:border-teal-900 transition focus:outline-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#034a9a] focus:border-[#034a9a] transition focus:outline-none"
             placeholder="How can we help you?"
             value={formData.message}
             onChange={handleInputChange}
@@ -225,7 +225,7 @@ const Contact = () => {
           type="checkbox"
           id="consent"
           name="consent"
-          className="h-4 w-4 text-teal-900 focus:ring-teal-900 border-gray-300 rounded"
+          className="h-4 w-4 text-[#034a9a] focus:ring-[#034a9a] border-gray-300 rounded"
           required
         />
         <label htmlFor="consent" className="ml-2 block text-sm text-gray-700">
@@ -235,7 +235,7 @@ const Contact = () => {
 
       <button
         type="submit"
-        className="w-full bg-teal-900 hover:bg-teal-800 text-white font-medium py-3 px-4 rounded-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-teal-900 focus:ring-offset-2 flex items-center justify-center"
+        className="w-full bg-[#034a9a] hover:bg-[#034a9a] text-white font-medium py-3 px-4 rounded-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#034a9a] focus:ring-offset-2 flex items-center justify-center"
       >
         <FaPaperPlane className="mr-2" />
         Send Message
@@ -245,7 +245,7 @@ const Contact = () => {
 
   {/* Map Section with Additional Info */}
   <section className="my-12 mb-[4rem] rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-    <div className="bg-teal-900 text-white p-6">
+    <div className="bg-[#034a9a] text-white p-6">
       <h2 className="text-2xl font-bold mb-2">Visit Our Facility</h2>
       <p className="mb-4">We welcome visitors by appointment. Contact us to schedule a tour of our manufacturing plant.</p>
       <div className="flex flex-wrap gap-4">
