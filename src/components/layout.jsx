@@ -2,6 +2,7 @@ import { useState } from "react";
 import logo from "../assets/lucidLogo.png";
 import { Link } from "react-router-dom";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -149,14 +150,130 @@ export const Navbar = () => {
             )}
 
             {/* Contact Button with Animation */}
-            <a
-              href="tel:+917402623998"
-              className="lg:ml-30 md:ml-0  ml-20 px-6 py-3 bg-[#BDD9D7] text-[#034a9a] font-medium rounded-full transition-all duration-300
-                        hover:bg-white hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white
-                        active:scale-95 flex gap-4 items-center justify-center "
-            >
-            <FaPhoneAlt className="text-xl" /> <span>    +91 74026 23998</span>
-            </a>
+            <motion.div 
+      className="relative inline-block"
+      whileHover="hover"
+      whileTap="tap"
+    >
+      {/* Glow backdrop (only visible on hover) */}
+      <motion.div
+        className="absolute inset-0 rounded-full blur-md"
+        variants={{
+          hover: {
+            background: "radial-gradient(circle, rgba(0,168,255,0.4) 0%, rgba(0,168,255,0) 70%)",
+            opacity: 1,
+            scale: 1.5
+          },
+          tap: {
+            scale: 1.3
+          }
+        }}
+        initial={{ opacity: 0 }}
+      />
+      
+      {/* Main button */}
+      <motion.a
+        href="tel:+917402623998"
+        className="relative lg:ml-30 md:ml-0 ml-20 px-6 py-3 bg-[#fbfbfb] text-[#034a9a] font-medium rounded-full
+                  flex gap-4 items-center justify-center overflow-hidden z-10"
+        variants={{
+          hover: {
+            backgroundColor: "#FFFFFF",
+            boxShadow: "0 0 20px rgba(0,168,255,0.7)",
+            textShadow: "0 0 8px rgba(0,168,255,0.5)",
+            y: -2
+          },
+          tap: {
+            scale: 0.98
+          }
+        }}
+      >
+        {/* Floating particles (appear on hover) */}
+        <motion.span
+          className="absolute inset-0 overflow-hidden"
+          initial={{ opacity: 0 }}
+          variants={{
+            hover: {
+              opacity: 1,
+              transition: { staggerChildren: 0.1 }
+            }
+          }}
+        >
+          {[...Array(6)].map((_, i) => (
+            <motion.span
+              key={i}
+              className="absolute bg-white rounded-full"
+              style={{
+                width: Math.random() * 4 + 2 + "px",
+                height: Math.random() * 4 + 2 + "px",
+                left: Math.random() * 100 + "%",
+                top: Math.random() * 100 + "%"
+              }}
+              variants={{
+                hover: {
+                  y: [0, -20],
+                  opacity: [1, 0],
+                  transition: {
+                    duration: 1.5,
+                    repeat: Infinity,
+                    delay: i * 0.2
+                  }
+                }
+              }}
+            />
+          ))}
+        </motion.span>
+
+        {/* Animated phone icon */}
+        <motion.span
+          variants={{
+            hover: {
+              rotate: [0, 10, -10, 0],
+              transition: {
+                duration: 1.2,
+                repeat: Infinity
+              }
+            },
+            tap: {
+              scale: 0.9
+            }
+          }}
+        >
+          <FaPhoneAlt className="text-xl" />
+        </motion.span>
+        
+        {/* Phone number with glow */}
+        <motion.span
+          variants={{
+            hover: {
+              scale: 1.05,
+              transition: { 
+                type: "spring",
+                stiffness: 500
+              }
+            }
+          }}
+        >
+          +91 74026 23998
+        </motion.span>
+        
+        {/* Inner glow pulse */}
+        <motion.div
+          className="absolute inset-0 rounded-full pointer-events-none"
+          initial={{ opacity: 0 }}
+          variants={{
+            hover: {
+              opacity: [0, 0.3, 0],
+              boxShadow: "inset 0 0 15px rgba(0,168,255,0.5)",
+              transition: {
+                duration: 2,
+                repeat: Infinity
+              }
+            }
+          }}
+        />
+      </motion.a>
+    </motion.div>
           </div>
 
           {/* Mobile menu button */}
@@ -425,7 +542,7 @@ export function AppBreadcrumbs() {
 }
 
 import { useEffect } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 export const LucidLoader = ({ nav, duration = 3000 }) => {
   const [progress, setProgress] = useState(0);

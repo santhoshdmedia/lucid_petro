@@ -63,7 +63,7 @@ const AboutUs = () => {
             </h2>
 
             <p className="text-gray-600 text-lg leading-relaxed mb-8 indent-8 text-justify">
-              Founded in 2004, Lucid Petro Chemical is a leading Indian manufacturer of high-performance lubricants and greases, serving industries like automotive, industrial machinery, and energy. We specialize in eco-friendly formulations that enhance efficiency while minimizing environmental impact. Beyond lubrication, we pioneer sustainable emission-reduction technologies for diesel engines, industrial boilers, and power plants. Our cost-effective solutions help businesses lower their carbon footprint without compromising performance. Committed to innovation and sustainability, Lucid Petro Chemical bridges cutting-edge technology with industrial reliability, ensuring cleaner operations and longer equipment life across global markets.
+              Founded in 2016, Lucid Petro Chemical is a leading Indian manufacturer of high-performance lubricants and greases, serving industries like automotive, industrial machinery, and energy. We specialize in eco-friendly formulations that enhance efficiency while minimizing environmental impact. Beyond lubrication, we pioneer sustainable emission-reduction technologies for diesel engines, industrial boilers, and power plants. Our cost-effective solutions help businesses lower their carbon footprint without compromising performance. Committed to innovation and sustainability, Lucid Petro Chemical bridges cutting-edge technology with industrial reliability, ensuring cleaner operations and longer equipment life across global markets.
             </p>
 
 
@@ -165,7 +165,7 @@ export const WhoWeAre = () => {
         
         <div className="bg-[#f9f9f9] rounded-xl p-8 md:p-10 shadow-md">
             <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
-            Established in 2004, our leadership team brings decades of combined experience in the 
+            Established in 2016, our leadership team brings decades of combined experience in the 
             petrochemical industry. With manufacturing facilities across India, we operate under 
             the core values of innovation, sustainability, quality, and environmental responsibility.
           </p>

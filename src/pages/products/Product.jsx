@@ -12,7 +12,6 @@ import LubricatingGreaseProduct from "../../assets/product/productFive.webp";
 import { LucidLoader } from "../../components/layout";
 import oilBg from "../../assets/oils_bg.jpg";
 import engineOilOne from "../../assets/product/engineOil/10w-30.webp";
-import engineOiltwo from "../../assets/product/engineOil/15w-40.webp";
 import engineOilthree from "../../assets/product/engineOil/20w-40.webp";
 import engineOilfour from "../../assets/product/engineOil/20w-50.webp";
 import { motion } from "framer-motion";

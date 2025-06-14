@@ -244,7 +244,7 @@ const Home = () => {
             </h1>
 
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#003a38]  leading-6 lg:leading-10 md:leading-6 text-justify  indent-10">
-              Since 2004, Lucid Petro Chemical has been a leading innovator in the lubricants and grease manufacturing industry. We specialize in high-performance automotive and industrial solutions, crafting tailor-made products that meet stringent quality, environmental, and operational standards.  
+              Since 2016, Lucid Petro Chemical has been a leading innovator in the lubricants and grease manufacturing industry. We specialize in high-performance automotive and industrial solutions, crafting tailor-made products that meet stringent quality, environmental, and operational standards.  
             </p>
 
             <blockquote className="border-l-4 lg:border-[#034a9a] md:border-[#034a9a] border-none pl-4 italic text-lg sm:text-lg md:text-xl lg:text-2xl text-[#042524] lg:ml-[30%] md:ml-[30%] ml-8">
@@ -410,7 +410,7 @@ const Home = () => {
 
               {/* Hidden paragraph that appears on hover */}
               <p className="text-gray-600 text-center absolute inset-0 flex items-center justify-center bg-[#ffffff] bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-xl border-2 border-dashed m-5 rounded-2xl">
-                 Decades of experience since 2004
+                 Decades of experience since 2016
               </p>
 
               
