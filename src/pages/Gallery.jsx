@@ -34,9 +34,8 @@ import { AppBreadcrumbs } from "../components/layout";
 import Paking from "../assets/video/packing.mp4";
 import exportPackages from "../assets/video/export.mp4";
 import factoreyInteriour from "../assets/video/interior.mp4";
-import work  from '../assets/video/work_progress.mp4'
+import work from "../assets/video/work_progress.mp4";
 import { FaEye } from "react-icons/fa";
-
 
 const galleryItems = [
   // Employee images
@@ -333,45 +332,46 @@ export const Gallery = () => {
                   key={item.id}
                 >
                   <div
-                    className="relative group overflow-hidden  cursor-pointer"
+                    className="relative group overflow-hidden cursor-pointer"
                     onClick={() => openLightbox(item, index)}
                   >
                     {item.type === "image" ? (
                       <img
                         src={item.src}
                         alt={item.alt}
-                        className="w-full h-64 object-cover transition-transform group-hover:scale-110"
+                        className="w-full h-64 object-cover transition-transform group-hover:scale-110 duration-300"
                         loading="lazy"
                       />
                     ) : (
                       <div className="relative w-full h-64 overflow-hidden">
                         <video
                           src={item.src}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                           muted
                           loop
                           playsInline
                           poster={item.thumbnail}
                         />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          {/* <div className="w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center">
-                            
-                          </div> */}
-                        </div>
                       </div>
                     )}
-                    <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)] bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center">
-                     {item.type=="image"?<p className="text-white font-semibold p-2 bg-[#00000074] text-xl rounded-full"><FaEye /></p>: 
-                     <div className="bg-[#00000074] p-2 rounded-full">
-                      <svg
-                        className="h-8 w-8 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                      </svg>
-                     </div>
-                      }
+
+                    {/* Hover overlay with icon */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#0000003d] bg-opacity-30">
+                      {item.type === "image" ? (
+                        <div className="p-3 bg-[#0000003d] bg-opacity-50 rounded-full transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                          <FaEye className="text-white text-xl" />
+                        </div>
+                      ) : (
+                        <div className="p-3 bg-[#0000003d] bg-opacity-50 rounded-full transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                          <svg
+                            className="h-6 w-6 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                          </svg>
+                        </div>
+                      )}
                     </div>
                   </div>
                   {item.type == "video" ? (
