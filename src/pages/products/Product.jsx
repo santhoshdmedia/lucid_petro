@@ -15,6 +15,7 @@ import engineOilOne from "../../assets/product/engineOil/10w-30.webp";
 import engineOiltwo from "../../assets/product/engineOil/15w-40.webp";
 import engineOilthree from "../../assets/product/engineOil/20w-40.webp";
 import engineOilfour from "../../assets/product/engineOil/20w-50.webp";
+import { motion } from "framer-motion";
 
 const similarProducts = [
   {
@@ -109,6 +110,33 @@ export const ProductLayout = () => {
   if (isLoading) {
     return <LucidLoader nav="Product Catalog" duration={800} />;
   }
+  // Add these animation variants
+const cardVariants = {
+  hover: {
+    y: -5,
+    scale: 1.02,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  }
+};
+
+const contentVariants = {
+  initial: {
+    opacity: 0,
+    y: 20
+  },
+  hover: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut"
+    }
+  }
+};
+
 
   return (
     <div className="relative overflow-hidden">
@@ -144,7 +172,7 @@ export const ProductLayout = () => {
 
                 {/* Content Container */}
                 <div className="absolute inset-0 flex items-end p-6 z-[12]">
-                <div className="absolute w-full h-full bg-gradient-to-t from-[#0000000a] to-transparent z-22"></div>
+                  <div className="absolute w-full h-full bg-gradient-to-t from-[#0000000a] to-transparent z-22"></div>
                   <div className="text-white w-full flex flex-col justify-center items-center">
                     <h3 className="text-2xl font-bold drop-shadow-md">
                       {product.productName}
@@ -154,7 +182,7 @@ export const ProductLayout = () => {
                     </p>
                     <a
                       href={product.productRoute}
-                      className="mt-4 inline-block px-6 py-2 bg-[#034a9a] hover:bg-[#004a45] text-white rounded-lg font-medium transition-colors duration-200"
+                      className="mt-4 inline-block px-6 py-2 bg-[#034a9a] hover:bg-[#5d83ae] text-white rounded-lg font-medium transition-colors duration-200"
                     >
                       View Product
                     </a>
@@ -246,41 +274,57 @@ export const ProductLayout = () => {
           </div>
 
           {/* Diagonal Gradient Background Layers */}
-          <div className="bg absolute h-[200%] w-[200%] bg-gradient-to-r from-[#6c3] via-[#6c3] to-[#bdd9d7] opacity-50 animate-slide-3s-diagonal origin-top-left"></div>
-          <div className="bg absolute h-[200%] w-[200%] bg-gradient-to-r from-[#6c3] via-[#6c3] to-[#bdd9d7] opacity-50 animate-slide-4s-diagonal origin-bottom-right"></div>
-          <div className="bg absolute h-[200%] w-[200%] bg-gradient-to-r from-[#bdd9d7] via-[#bdd9d7] to-[#6c3] opacity-50 animate-slide-5s-diagonal origin-center"></div>
+          <div className="bg absolute h-[200%] w-[200%] bg-gradient-to-r from-[#339ecc] via-[#3747f5] to-[#d8d8d8] opacity-50 animate-slide-3s-diagonal origin-top-left"></div>
+          <div className="bg absolute h-[200%] w-[200%] bg-gradient-to-r from-[#3747f5] via-[#339ecc] to-[#ffffff] opacity-50 animate-slide-4s-diagonal origin-bottom-right"></div>
+          <div className="bg absolute h-[200%] w-[200%] bg-gradient-to-r from-[#6fbad3] via-[#6fbad3] to-[#6fbad3] opacity-50 animate-slide-5s-diagonal origin-center"></div>
         </div>
 
         <section className="sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem]">
+          // Updated grid component
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
             {similarProducts.map((product) => (
-              <div
+              <motion.div
                 key={product.id}
-                className="group relative h-80 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all bg-[rgba(255,255,255,.8)]"
+                className="group relative h-80 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl bg-[rgba(255,255,255,.8)]"
+                initial="rest"
+                whileHover="hover"
+                variants={cardVariants}
               >
-                <img
+                <motion.img
                   src={product.productImg}
                   className="w-full h-full object-cover"
                   alt={product.productName}
                   loading="lazy"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                  <div className="text-white translate-y-4 group-hover:translate-y-0 transition-transform">
+
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6"
+                  variants={contentVariants}
+                  initial="initial"
+                >
+                  <div className="text-white">
                     <h3 className="text-2xl font-bold">
                       {product.productName}
                     </h3>
                     <p className="mt-2 line-clamp-2">
                       {product.productDescription}
                     </p>
-                    <a
+                    <motion.a
                       href={product.productRoute}
                       className="inline-block mt-4 px-6 py-2 bg-[#034a9a] text-white rounded-lg font-medium hover:text-[#034a9a] hover:bg-white transition-colors"
+                      whileHover={{
+                        scale: 1.05,
+                        transition: { duration: 0.2 },
+                      }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       View Details
-                    </a>
+                    </motion.a>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
         </section>
