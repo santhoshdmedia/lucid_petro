@@ -44,7 +44,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="bg-[#005f5a] text-white sticky top-0 z-50 shadow-md">
+    <header className="bg-[#034a9a] text-white sticky top-0 z-50 shadow-md">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -151,7 +151,7 @@ export const Navbar = () => {
             {/* Contact Button with Animation */}
             <a
               href="tel:+917402623998"
-              className="lg:ml-30 md:ml-0  ml-20 px-6 py-3 bg-[#BDD9D7] text-[#005f5a] font-medium rounded-full transition-all duration-300
+              className="lg:ml-30 md:ml-0  ml-20 px-6 py-3 bg-[#BDD9D7] text-[#034a9a] font-medium rounded-full transition-all duration-300
                         hover:bg-white hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white
                         active:scale-95 flex gap-4 items-center justify-center "
             >
@@ -269,7 +269,7 @@ export const Navbar = () => {
             </div>
               <a
                 href="tel:+917402623998"
-                className=" mx-4 mt-2 px-6 py-3 bg-[#BDD9D7] text-[#005f5a] font-medium text-center rounded-full transition-all duration-300
+                className=" mx-4 mt-2 px-6 py-3 bg-[#BDD9D7] text-[#034a9a] font-medium text-center rounded-full transition-all duration-300
                           hover:bg-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white flex items-center justify-center "
                 onClick={closeMenu}
               >
@@ -287,7 +287,7 @@ export const Navbar = () => {
 export const Footer = () => {
   return (
     <>
-      <footer className="footer sm:footer-horizontal justify-between  p-[4rem] px-[2rem] lg:px-[10rem] bg-[#005f5a] text-[#BDD9D7]">
+      <footer className="footer sm:footer-horizontal justify-between  p-[4rem] px-[2rem] lg:px-[10rem] bg-[#034a9a] text-[#BDD9D7]">
         <div className="flex flex-col items-start justify-center ">
           <div className="flex items-center justify-between  gap-4">
             <img
@@ -445,7 +445,7 @@ export const LucidLoader = ({ nav, duration = 3000 }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#005f5a]"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#034a9a]"
       role="status"
       aria-label="Loading"
     >

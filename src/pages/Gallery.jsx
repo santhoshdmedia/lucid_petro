@@ -313,8 +313,8 @@ export const Gallery = () => {
               onClick={() => handleCategoryChange(category)}
               className={`px-4 py-2 rounded-full capitalize transition-colors ${
                 activeCategory === category
-                  ? "bg-[#005f5a] text-white"
-                  : "bg-white text-[#005f5a] hover:bg-[#BDD9D7]"
+                  ? "bg-[#034a9a] text-white"
+                  : "bg-white text-[#034a9a] hover:bg-[#BDD9D7]"
               }`}
             >
               {category.replace("-", " ")}
@@ -328,7 +328,7 @@ export const Gallery = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
               {itemsToShow.map((item, index) => (
                 <div
-                  className="bg-[#005f5a] rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all "
+                  className="bg-[#034a9a] rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all "
                   key={item.id}
                 >
                   <div
@@ -394,7 +394,7 @@ export const Gallery = () => {
                   className={`px-6 py-3 rounded-lg transition-colors flex items-center justify-center mx-auto min-w-[150px] ${
                     isLoading
                       ? "bg-[#004a45] cursor-not-allowed"
-                      : "bg-[#005f5a] hover:bg-[#004a45]"
+                      : "bg-[#034a9a] hover:bg-[#004a45]"
                   } text-white`}
                 >
                   {isLoading ? (

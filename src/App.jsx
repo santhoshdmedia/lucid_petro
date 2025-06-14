@@ -30,7 +30,7 @@ function App() {
       <Navbar />
       {/* <AppBreadcrumbs /> */}
       <AppRoutes />
-      <div className="fixed bottom-10 right-10 z-50 shadow-lg rounded-full bg-[#25D366] p-3">
+      <div className="fixed bottom-10 right-10 z-50 shadow-lg rounded-full bg-[#1482aa] p-3">
         <a href="https://wa.me/6379775070" target="_blank" rel="noopener noreferrer">
           <IoLogoWhatsapp className="text-[2rem] lg:text-[2.5rem] text-white transition-colors" />
         </a>

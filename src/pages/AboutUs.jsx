@@ -58,7 +58,7 @@ const AboutUs = () => {
 
           {/* Text Content & Progress Bars */}
           <div className="w-full lg:w-1/2">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#005f5a] mb-8 text-center lg:text-left">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#034a9a] mb-8 text-center lg:text-left">
               Lubricants that Power the Threads of Industry
             </h2>
 
@@ -77,7 +77,7 @@ const AboutUs = () => {
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2.5">
                     <div
-                      className="bg-[#005f5a] h-2.5 rounded-full transition-all duration-1000 ease-out"
+                      className="bg-[#034a9a] h-2.5 rounded-full transition-all duration-1000 ease-out"
                       style={{ width: visible ? `${value}%` : '0%' }}
                       aria-label={`${label} progress`}
                     />
@@ -122,8 +122,8 @@ const AboutUs = () => {
           {/* Vision Card */}
           <div className="glass-card group hover:scale-[1.02] transition-all duration-300">
             <div className="p-6 flex flex-col items-center text-center h-full">
-              <TbTargetArrow className='text-6xl text-[#005f5a] mb-4 group-hover:text-[#00857e] transition-colors' />
-              <h3 className="text-xl font-semibold mb-2 text-[#005f5a]">Vision</h3>
+              <TbTargetArrow className='text-6xl text-[#034a9a] mb-4 group-hover:text-[#00857e] transition-colors' />
+              <h3 className="text-xl font-semibold mb-2 text-[#034a9a]">Vision</h3>
               <p className="text-gray-700">Global leader in innovative, eco-friendly lubricants enhancing performance and sustainability</p>
             </div>
           </div>
@@ -131,8 +131,8 @@ const AboutUs = () => {
           {/* Mission Card */}
           <div className="glass-card group hover:scale-[1.02] transition-all duration-300">
             <div className="p-6 flex flex-col items-center text-center h-full">
-              <FaEye className='text-6xl text-[#005f5a] mb-4 group-hover:text-[#00857e] transition-colors' />
-              <h3 className="text-xl font-semibold mb-2 text-[#005f5a]">Mission</h3>
+              <FaEye className='text-6xl text-[#034a9a] mb-4 group-hover:text-[#00857e] transition-colors' />
+              <h3 className="text-xl font-semibold mb-2 text-[#034a9a]">Mission</h3>
               <p className="text-gray-700">Deliver high-quality lubrication solutions while reducing environmental impact</p>
             </div>
           </div>
@@ -140,8 +140,8 @@ const AboutUs = () => {
           {/* Values Card */}
           <div className="glass-card group hover:scale-[1.02] transition-all duration-300">
             <div className="p-6 flex flex-col items-center text-center h-full">
-              <FaHandHoldingHeart className='text-6xl text-[#005f5a] mb-4 group-hover:text-[#00857e] transition-colors' />
-              <h3 className="text-xl font-semibold mb-2 text-[#005f5a]">Values</h3>
+              <FaHandHoldingHeart className='text-6xl text-[#034a9a] mb-4 group-hover:text-[#00857e] transition-colors' />
+              <h3 className="text-xl font-semibold mb-2 text-[#034a9a]">Values</h3>
               <div className="flex flex-wrap justify-center gap-2">
                 <p className="text-gray-700">
                   Innovation | Sustainability | Quality | Customer Trust | Environmental Responsibility
@@ -159,7 +159,7 @@ export const WhoWeAre = () => {
   return (
     <section className=" bg-white">
       <div className="w-full mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#005f5a] mb-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#034a9a] mb-8 text-center">
           Who We Are
         </h2>
         
@@ -176,17 +176,17 @@ export const WhoWeAre = () => {
         
           
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#005f5a] text-white p-4 rounded-lg text-center">
+            <div className="bg-[#034a9a] text-white p-4 rounded-lg text-center">
               <h3 className="text-xl font-semibold mb-2">10+ Years</h3>
               <p className="text-[#bdd9d7]">Industry Experience</p>
             </div>
             
-            <div className="bg-[#005f5a] text-white p-4 rounded-lg text-center">
+            <div className="bg-[#034a9a] text-white p-4 rounded-lg text-center">
               <h3 className="text-xl font-semibold mb-2">3+ Locations</h3>
               <p className="text-[#bdd9d7]">Across India</p>
             </div>
             
-            <div className="bg-[#005f5a] text-white p-4 rounded-lg text-center">
+            <div className="bg-[#034a9a] text-white p-4 rounded-lg text-center">
               <h3 className="text-xl font-semibold mb-2">100+ Clients</h3>
               <p className="text-[#bdd9d7]">Served Globally</p>
             </div>

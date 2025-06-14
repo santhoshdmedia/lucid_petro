@@ -184,7 +184,7 @@ const Home = () => {
       {/* about content */}
       <div className="  sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem] overflow-x-hidden ">
         <div className="my-16 sm:my-20 md:my-24 lg:my-32 ">
-          <h1 className="text-center lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full w-[80%] font-bold mx-auto text-[#005f5a] mb-[2rem] relative group ">
+          <h1 className="text-center lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full w-[80%] font-bold mx-auto text-[#034a9a] mb-[2rem] relative group ">
             Our Products and Services
             <span className="absolute bottom-[-30px] left-[50%] translate-x-[-50%] h-1.5 bg-[#84b5d3] w-1/6 transition-all duration-300 ease-in-out "></span>
           </h1>
@@ -221,7 +221,7 @@ const Home = () => {
 
                 <Link
                   to={product.route}
-                  className="text-center font-bold text-lg sm:text-xl text-[#005f5a] md:text-2xl mt-3 sm:mt-4 group-hover:text-[#003d3a] transition-colors"
+                  className="text-center font-bold text-lg sm:text-xl text-[#034a9a] md:text-2xl mt-3 sm:mt-4 group-hover:text-[#003d3a] transition-colors"
                 >
                   {product.name}
                 </Link>
@@ -239,7 +239,7 @@ const Home = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} className="w-full lg:w-1/2 space-y-6">
-            <h1 className="text-center lg:text-left md:text-left lg:text-4xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full  font-bold mx-auto text-[#005f5a] mb-[2rem] relative group ">
+            <h1 className="text-center lg:text-left md:text-left lg:text-4xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full  font-bold mx-auto text-[#034a9a] mb-[2rem] relative group ">
               Welcome to Lucid Petro Chemical
             </h1>
 
@@ -247,7 +247,7 @@ const Home = () => {
               Since 2004, Lucid Petro Chemical has been a leading innovator in the lubricants and grease manufacturing industry. We specialize in high-performance automotive and industrial solutions, crafting tailor-made products that meet stringent quality, environmental, and operational standards.  
             </p>
 
-            <blockquote className="border-l-4 lg:border-[#005f5a] md:border-[#005f5a] border-none pl-4 italic text-lg sm:text-lg md:text-xl lg:text-2xl text-[#042524] lg:ml-[30%] md:ml-[30%] ml-8">
+            <blockquote className="border-l-4 lg:border-[#034a9a] md:border-[#034a9a] border-none pl-4 italic text-lg sm:text-lg md:text-xl lg:text-2xl text-[#042524] lg:ml-[30%] md:ml-[30%] ml-8">
               “Driven by Performance. Powered by Innovation.”
             </blockquote>
           </motion.div>
@@ -255,7 +255,7 @@ const Home = () => {
 
         {/* quotes */}
         <motion.div initial={{ opacity: 0, y: -200 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="mt-16 sm:mt-20 md:mt-26 lg:mt-30 overflow-x-hidden">
-          <h1 className="text-center   lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full font-bold mx-auto text-[#005f5a] mb-[2rem] relative group bg-transparent">
+          <h1 className="text-center   lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full font-bold mx-auto text-[#034a9a] mb-[2rem] relative group bg-transparent">
             Lucid Lubricants – Redefining Excellence in Motion
             <span className="absolute bottom-[-30px] left-[50%] translate-x-[-50%] h-1.5 bg-[#84b5d3] w-1/6 transition-all duration-300 ease-in-out "></span>
           </h1>
@@ -273,7 +273,7 @@ const Home = () => {
             {/* Content */}
             <div className="relative z-10 h-full flex items-center justify-center p-4 sm:p-8">
               <blockquote
-                className="text-center text-md sm:text-xl text-[#005f5a] md:text-xl"
+                className="text-center text-md sm:text-xl text-[#034a9a] md:text-xl"
                 style={{ lineHeight: "1.6" }}
               >
                 <p className="mb-6 font-semibold italic">
@@ -303,8 +303,8 @@ const Home = () => {
       <section className=" sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem] bg-[#bdd8d6] overflow-x-hidden">
         <section className="container mx-auto px-4 sm:px-6 py-16 lg:py-14 pb-20 relative ">
 
-          <h2 className="text-md md:text-lg lg:text-xl text-[#005f5a] mb-4 text-center font-normal">Our Features</h2>
-          <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-[#005f5a] mb-20 text-center capitalize">Why Choose Our Lubricants</h2>
+          <h2 className="text-md md:text-lg lg:text-xl text-[#034a9a] mb-4 text-center font-normal">Our Features</h2>
+          <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-[#034a9a] mb-20 text-center capitalize">Why Choose Our Lubricants</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-10 lg:mx-0 md:mx-0 sm:mx-0 sm:gap-8 lg:gap-12">
             {/* Vendor-Neutral Consulting */}
@@ -313,7 +313,7 @@ const Home = () => {
               {/* Icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-16 w-16 text-[#005f5a] transition-colors duration-300 group-hover:text-[#00857e]"
+                className="h-16 w-16 text-[#034a9a] transition-colors duration-300 group-hover:text-[#00857e]"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -323,12 +323,12 @@ const Home = () => {
               </svg>
 
               {/* Title */}
-              <h3 className="text-xl text-center font-bold text-[#005f5a] group-hover:text-[#00857e] transition-colors duration-300">
+              <h3 className="text-xl text-center font-bold text-[#034a9a] group-hover:text-[#00857e] transition-colors duration-300">
                 Vendor-Neutral Consulting
               </h3>
 
               {/* Hidden paragraph that appears on hover */}
-              <p className="text-gray-600 text-center absolute inset-0 flex items-center justify-center border-2 border-dashed m-5 rounded-2xl border-[#005f5a] bg-[#ffffff] bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-xl">
+              <p className="text-gray-600 text-center absolute inset-0 flex items-center justify-center border-2 border-dashed m-5 rounded-2xl border-[#034a9a] bg-[#ffffff] bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-xl">
                 We recommend what's right, not what we sell
               </p>
 
@@ -340,7 +340,7 @@ const Home = () => {
               {/* Icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-16 w-16 text-[#005f5a] group-hover:text-[#00857e] transition-colors duration-300"
+                className="h-16 w-16 text-[#034a9a] group-hover:text-[#00857e] transition-colors duration-300"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -350,7 +350,7 @@ const Home = () => {
               </svg>
 
               {/* Title */}
-              <h3 className="text-xl text-center font-bold text-[#005f5a] group-hover:text-[#00857e] transition-colors duration-300">
+              <h3 className="text-xl text-center font-bold text-[#034a9a] group-hover:text-[#00857e] transition-colors duration-300">
                  Global Presence
               </h3>
 
@@ -368,7 +368,7 @@ const Home = () => {
               {/* Icon */}
                <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-16 w-16 text-[#005f5a] group-hover:text-[#00857e] transition-colors duration-300"
+                className="h-16 w-16 text-[#034a9a] group-hover:text-[#00857e] transition-colors duration-300"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -377,7 +377,7 @@ const Home = () => {
                 <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
               {/* Title */}
-              <h3 className="text-xl text-center font-bold text-[#005f5a] group-hover:text-[#00857e] transition-colors duration-300">
+              <h3 className="text-xl text-center font-bold text-[#034a9a] group-hover:text-[#00857e] transition-colors duration-300">
                   Education-First Approach
               </h3>
 
@@ -395,7 +395,7 @@ const Home = () => {
               {/* Icon */}
                <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-16 w-16 text-[#005f5a] group-hover:text-[#00857e] transition-colors duration-300"
+                className="h-16 w-16 text-[#034a9a] group-hover:text-[#00857e] transition-colors duration-300"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -404,7 +404,7 @@ const Home = () => {
                 <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
               {/* Title */}
-              <h3 className="text-xl text-center font-bold text-[#005f5a] group-hover:text-[#00857e] transition-colors duration-300">
+              <h3 className="text-xl text-center font-bold text-[#034a9a] group-hover:text-[#00857e] transition-colors duration-300">
                   Education-First Approach
               </h3>
 
@@ -437,7 +437,7 @@ const Home = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="flex items-center gap-4">
-                <div className="bg-[#005f5a] p-3 rounded-lg text-white">
+                <div className="bg-[#034a9a] p-3 rounded-lg text-white">
                   <FaWeightHanging className="text-2xl" />
                 </div>
                 <p className="text-lg font-bold text-[#ffffff]">2000 tons/month blending, packing & distribution capacity</p>
@@ -467,7 +467,7 @@ const Home = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <div className="flex items-center gap-4">
-                <div className="bg-[#005f5a] p-3 rounded-lg text-white">
+                <div className="bg-[#034a9a] p-3 rounded-lg text-white">
                   <FaIndustry className="text-2xl" />
                 </div>
                 <p className="text-lg font-medium text-[#ffffff]">New grease production unit</p>
@@ -497,7 +497,7 @@ const Home = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               <div className="flex items-center gap-4">
-                <div className="bg-[#005f5a] p-3 rounded-lg text-white">
+                <div className="bg-[#034a9a] p-3 rounded-lg text-white">
                   <FaWarehouse className="text-2xl" />
                 </div>
                 <p className="text-lg font-medium text-[#ffffff]">Additional storage tanks</p>
@@ -527,7 +527,7 @@ const Home = () => {
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               <div className="flex items-center gap-4">
-                <div className="bg-[#005f5a] p-3 rounded-lg text-white">
+                <div className="bg-[#034a9a] p-3 rounded-lg text-white">
                   <FaFlask className="text-2xl" />
                 </div>
                 <p className="text-lg font-medium text-[#ffffff]">Advanced QC laboratory</p>
@@ -557,7 +557,7 @@ const Home = () => {
               transition={{ duration: 0.5, delay: 0.8 }}
             >
               <div className="flex items-center gap-4">
-                <div className="bg-[#005f5a] p-3 rounded-lg text-white">
+                <div className="bg-[#034a9a] p-3 rounded-lg text-white">
                   <FaShippingFast className="text-2xl" />
                 </div>
                 <p className="text-lg font-medium text-[#ffffff]">Flexible delivery systems</p>

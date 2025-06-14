@@ -114,7 +114,7 @@ export const ProductLayout = () => {
     <div className="relative overflow-hidden">
       {/* Carousel Section */}
       <section className="product__section flex flex-col px-4 md:px-10 ">
-        <h1 className="text-center text-3xl sm:text-4xl lg:text-5xl w-[80%] md:w-full font-bold mx-auto text-[#005f5a] my-8 md:my-12">
+        <h1 className="text-center text-3xl sm:text-4xl lg:text-5xl w-[80%] md:w-full font-bold mx-auto text-[#034a9a] my-8 md:my-12">
           Products
         </h1>
         {/* Mobile Slider */}
@@ -154,7 +154,7 @@ export const ProductLayout = () => {
                     </p>
                     <a
                       href={product.productRoute}
-                      className="mt-4 inline-block px-6 py-2 bg-[#005f5a] hover:bg-[#004a45] text-white rounded-lg font-medium transition-colors duration-200"
+                      className="mt-4 inline-block px-6 py-2 bg-[#034a9a] hover:bg-[#004a45] text-white rounded-lg font-medium transition-colors duration-200"
                     >
                       View Product
                     </a>
@@ -171,7 +171,7 @@ export const ProductLayout = () => {
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
                 className={`w-2 h-2 rounded-full ${
-                  currentSlide === idx ? "bg-[#005f5a]" : "bg-gray-300"
+                  currentSlide === idx ? "bg-[#034a9a]" : "bg-gray-300"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -210,7 +210,7 @@ export const ProductLayout = () => {
                     <p className="mt-2">{product.productDescription}</p>
                     <a
                       href={product.productRoute}
-                      className="mt-6 inline-flex items-center px-6 py-3 border border-[#005f5a] font-medium rounded-lg bg-[#005f5a] text-white"
+                      className="mt-6 inline-flex items-center px-6 py-3 border border-[#034a9a] font-medium rounded-lg bg-[#034a9a] text-white"
                     >
                       View Product
                     </a>
@@ -274,7 +274,7 @@ export const ProductLayout = () => {
                     </p>
                     <a
                       href={product.productRoute}
-                      className="inline-block mt-4 px-6 py-2 bg-[#005f5a] text-white rounded-lg font-medium hover:text-[#005f5a] hover:bg-white transition-colors"
+                      className="inline-block mt-4 px-6 py-2 bg-[#034a9a] text-white rounded-lg font-medium hover:text-[#034a9a] hover:bg-white transition-colors"
                     >
                       View Details
                     </a>
