@@ -300,11 +300,11 @@ const Home = () => {
 
       </div>
       {/* why choose us section */}
-      <section className=" sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem] bg-[#bdd8d6] overflow-x-hidden">
+      <section className=" sm:px-[4rem] lg:px-[8rem] xl:px-[8rem] 2xl:px-[10rem] bg-[#1482aa] overflow-x-hidden">
         <section className="container mx-auto px-4 sm:px-6 py-16 lg:py-14 pb-20 relative ">
 
-          <h2 className="text-md md:text-lg lg:text-xl text-[#034a9a] mb-4 text-center font-normal">Our Features</h2>
-          <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-[#034a9a] mb-20 text-center capitalize">Why Choose Our Lubricants</h2>
+          <h2 className="text-md md:text-lg lg:text-xl text-[#ffffff] mb-4 text-center font-normal">Our Features</h2>
+          <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-[#ededed] mb-20 text-center capitalize">Why Choose Our Lubricants</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-10 lg:mx-0 md:mx-0 sm:mx-0 sm:gap-8 lg:gap-12">
             {/* Vendor-Neutral Consulting */}
@@ -313,7 +313,7 @@ const Home = () => {
               {/* Icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-16 w-16 text-[#034a9a] transition-colors duration-300 group-hover:text-[#00857e]"
+                className="h-16 w-16 text-[#034a9a] transition-colors duration-300 group-hover:text-[#1482aa]"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -395,7 +395,7 @@ const Home = () => {
               {/* Icon */}
                <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-16 w-16 text-[#034a9a] group-hover:text-[#00857e] transition-colors duration-300"
+                className="h-16 w-16 text-[#034a9a] group-hover:text-[#1482aa] transition-colors duration-300"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -404,7 +404,7 @@ const Home = () => {
                 <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
               {/* Title */}
-              <h3 className="text-xl text-center font-bold text-[#034a9a] group-hover:text-[#00857e] transition-colors duration-300">
+              <h3 className="text-xl text-center font-bold text-[#034a9a] group-hover:text-[#1482aa] transition-colors duration-300">
                   Education-First Approach
               </h3>
 
