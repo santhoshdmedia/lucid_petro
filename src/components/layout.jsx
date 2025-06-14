@@ -57,7 +57,7 @@ export const Navbar = () => {
             <img
               src={logo}
               alt="Lucid Petro Chemical Company Logo"
-              className="size-26 w-auto"
+              className="size-20 lg:size-24 xl:size-26 w-auto"
             />
           </Link>
 
@@ -69,7 +69,7 @@ export const Navbar = () => {
                   key={item.label}
                   className="relative"
                   onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={closeAllDropdowns}
+                  
                 >
                   <button
                     className={`flex items-center px-4 py-2 text-lg font-medium text-white hover:text-[#BDD9D7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#BDD9D7] rounded focus:border-none ${
@@ -101,7 +101,7 @@ export const Navbar = () => {
                   {/* Dropdown Menu */}
                   <div
                     id={`dropdown-${item.label}`}
-                    className={`absolute left-0 top-full mt-2 w-56 origin-top-left rounded-md bg-[#004a46] shadow-lg ring-1 ring-white ring-opacity-5 transition-all duration-200 ${
+                    className={`absolute left-0 top-[5rem] mt-2 w-56 origin-top-left rounded-md bg-[#004a46] shadow-lg   transition-all duration-200 ${
                       openDropdown === item.label
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-95 pointer-events-none"
@@ -109,6 +109,7 @@ export const Navbar = () => {
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby={`menu-button-${item.label}`}
+                     onMouseLeave={closeAllDropdowns}
                   >
                     <div className="py-1">
                       {item.subItems.map((subItem) => (
@@ -120,6 +121,7 @@ export const Navbar = () => {
                           }`}
                           role="menuitem"
                           onClick={closeAllDropdowns}
+                         
                         >
                           {subItem.label}
                         </Link>

@@ -101,49 +101,53 @@ export const ProductLayout = () => {
           Products
         </h1>
         <div className="w-full overflow-hidden">
-          <div className="flex h-[400px] md:h-[500px]"> {/* Reduced height */}
-            {memoizedProducts.map((product, index) => (
-              <div
-                key={product.id}
-                className={`relative transition-all duration-300 ease-in-out overflow-hidden will-change-transform ${
-                  hoveredIndex === index ? "w-[60%]" : "w-1/5"
-                }`}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                {/* Background Image with optimized loading */}
-                <img
-                  src={product.productImg}
-                  className={`absolute inset-0 h-full w-full object-cover transition-transform duration-500 ${
-                    hoveredIndex === index ? "scale-105" : "scale-100" // Reduced scale
-                  }`}
-                  alt={product.productName}
-                  loading="lazy"
-                  decoding="async"
-                />
+          <div className="flex h-[400px] sm:h-[500px] md:flex-row lg:flex-row mx-auto"> {/* Responsive height */}
+  {memoizedProducts.map((product, index) => (
+    <div
+      key={product.id}
+      className={`relative transition-all duration-300 ease-in-out overflow-hidden will-change-transform ${
+        hoveredIndex === index 
+          ? "w-full md:w-[60%] lg:w-[60%]" 
+          : "w-1/6 md:w-[20%] lg:w-[20%]"
+      }`}
+      onMouseEnter={() => setHoveredIndex(index)}
+      onMouseLeave={() => setHoveredIndex(null)}
+    >
+      {/* Background Image with optimized loading */}
+      <img
+        src={product.productImg}
+        className={`absolute inset-0 h-full w-full object-cover transition-transform duration-500 ${
+          hoveredIndex === index ? "scale-105" : "scale-100"
+        }`}
+        alt={product.productName}
+        loading="lazy"
+        decoding="async"
+      />
 
-                {/* Overlay Content */}
-                <div
-                  className={`absolute inset-0 bg-black/25 flex items-end p-4 md:p-8 transition-opacity duration-200 ${
-                    hoveredIndex === index ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <div className="text-white max-w-md">
-                    <h3 className="text-2xl md:text-3xl font-bold">
-                      {product.productName}
-                    </h3>
-                    <p className="mt-2 text-sm md:text-base">{product.productDescription}</p>
-                    <a
-                      href={product.productRoute}
-                      className="mt-4 md:mt-6 inline-flex items-center px-4 py-2 md:px-6 md:py-3 border border-[#005f5a] font-medium rounded-lg bg-[#005f5a] text-white"
-                    >
-                      View Product
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Overlay Content */}
+      <div
+        className={`absolute inset-0 bg-black/25 flex items-end p-4 transition-opacity duration-200 ${
+          hoveredIndex === index ? "opacity-100" : "opacity-0"
+        } sm:p-6 md:p-8`} // Responsive padding
+      >
+        <div className="text-white max-w-md">
+          <h3 className="text-xl font-bold sm:text-2xl md:text-3xl"> {/* Responsive text */}
+            {product.productName}
+          </h3>
+          <p className="mt-2 text-xs sm:text-sm md:text-base"> {/* Responsive text */}
+            {product.productDescription}
+          </p>
+          <a
+            href={product.productRoute}
+            className="mt-3 inline-flex items-center px-4 py-2 text-sm border border-[#005f5a] font-medium rounded-lg bg-[#005f5a] text-white sm:mt-4 sm:px-5 sm:py-2.5 md:mt-6 md:px-6 md:py-3" // Responsive button
+          >
+            View Product
+          </a>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
         </div>
       </section>
 
@@ -295,7 +299,7 @@ export const LubricantProduct = ({
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Product Tabs Navigation */}
         <div className="mb-8 border-b border-gray-200">
-          <nav className="-mb-px flex space-x-8" aria-label="Product tabs">
+          <nav className="-mb-px flex space-x-8 flex-wrap" aria-label="Product tabs">
             {Object.keys(productData).map((tabKey) => (
               <button
                 key={tabKey}
@@ -486,7 +490,7 @@ export const LubricantProduct = ({
 export const Automobile = () => {
   const productData = {
     whiteGrease: {
-      productName: "White Lucid Automotive Grease",
+      productName: "White Lucid  Grease",
       image: automotiveProduct,
       description:
         "High-performance automotive grease designed for optimal lubrication and protection against wear. Ideal for various automotive applications including wheel bearings, chassis points, and universal joints.",
@@ -502,7 +506,7 @@ export const Automobile = () => {
       ],
     },
     lithiumGrease: {
-      productName: "Automotive Lucid Lithium Grease",
+      productName: " Lucid Lithium Grease",
       image: automotiveProduct,
       description:
         "Premium lithium complex grease with extreme pressure additives. Provides excellent protection in high-load applications and performs well in both high and low temperature conditions.",
@@ -567,7 +571,7 @@ export const Automobile = () => {
 export const Engineoil = () => {
   const productData = {
     Lucid_Extreme_20W50 : {
-      productName: "High Mileage 50L Lucid Extreme 20W50 API SM Four Stroke Engine Oil",
+      productName: "Lucid Extreme 20W50",
       image: engineOilfour,
       description:
         "The two main types of lubricants are oils and greases. Both aim to lubricate equipment and prevent damage through metal to metal contact. However, there are a few key differences in how they are used. To put it simply, grease is oil mixed with a thickener and other additives.",
@@ -582,7 +586,7 @@ export const Engineoil = () => {
       ],
     },
     Lucid_Super_20W40 : {
-      productName: "High Mileage 50L Lucid Super 20W 40 API SL Four Stroke Engine Oil",
+      productName: "Lucid Super 20W40",
       image: engineOilthree,
       description:
         "The two main types of lubricants are oils and greases. Both aim to lubricate equipment and prevent damage through metal to metal contact. However, there are a few key differences in how they are used. To put it simply, grease is oil mixed with a thickener and other additives.",
@@ -597,7 +601,7 @@ export const Engineoil = () => {
       ],
     },
     Lucid_Active_10W30 : {
-      productName: "Full Synthetic 50L Lucid Active 10W 30 API SL Four Stroke Engine Oil",
+      productName: "Lucid Active 10W30",
       image: engineOilOne,
       description:
         "The two main types of lubricants are oils and greases. Both aim to lubricate equipment and prevent damage through metal to metal contact. However, there are a few key differences in how they are used. To put it simply, grease is oil mixed with a thickener and other additives.",
